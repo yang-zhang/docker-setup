@@ -1,2 +1,2 @@
 # docker-setup
-Docker images and setup instructions.
+Dockerfiles and docker setup instructions.
