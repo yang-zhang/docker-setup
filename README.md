@@ -1,18 +1,24 @@
 ## Install Docker
 Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docker-mac) or [PC](https://www.docker.com/docker-windows).
 
-## Build images
+## The images
 ### Image: `base`
 [Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile)
-```sh
-$ ls base
-Dockerfile			jupyter_notebook_config.py
-$ docker build base --tag base
-```
 ### Image: `r`
 [Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
+
+## Build images
 ```sh
-$ docker build r --tag r
+dkbuild() {
+	docker build $1 --tag $1
+}
+```
+
+```sh
+$ dkbuild base
+```
+```sh
+$ dkbuild r
 ```
 
 ## Run a container from an image
@@ -31,8 +37,8 @@ dkrun() {
 }
 ```
 ```sh
-dkrun base
+$ dkrun base
 ```
 ```sh
-dkrun r
+$ dkrun r
 ```
