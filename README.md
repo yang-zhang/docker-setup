@@ -14,13 +14,13 @@ Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and a
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
 Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and add addtional libraries.
 ## Build the images
-Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
+Run this from the terminal or add it to `.bash_profile`:
 ```sh
 dkbuild() {
 	docker build $1 --tag $1
 }
 ```
-Run these from the terminal to build the images:
+Run these from the terminal under the project root (`docker-setup`) to build the images:
 ```sh
 $ dkbuild base
 $ dkbuild ds
@@ -31,14 +31,14 @@ $ dkbuild r
 ## Run a container from an image
 ### Python images
 #### Jupyter notebook
-Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
+Run this from the terminal or add it to `.bash_profile`:
 ```sh
 dkrun() {
 	docker run \
 	--rm \
 	-it \
 	-p 8888:8888 \
-	-v ~/git:/opt/notebooks \
+	-v $2:/opt/notebooks \
 	$1 \
 	/bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
 	/opt/conda/bin/jupyter notebook \
@@ -48,36 +48,47 @@ dkrun() {
 ```
 Run one of these from the terminal to run jupyter notebook within the respective image:
 ```sh
-$ dkrun base
-$ dkrun ds
-$ dkrun kaggle
+$ dkrun base ~/git
+$ dkrun ds ~/git
+$ dkrun kaggle ~/git
 ```
+The first argument is the name of the image, and the second argument is the local path to add.
+
 Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
 #### Ipython
-Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
+Run this from the terminal or add it to `.bash_profile`:
 ```sh
 dkrun_ipython() {
 	docker run \
 	--rm \
 	-it \
-	-v ~/git:/tmp \
+	-v $2:/tmp \
 	$1 \
 	/bin/bash -c "ipython"
 }
 ```
 Run one of these from the terminal to run ipython within the respective image:
 ```sh
-$ dkrun_ipython base
-$ dkrun_ipython ds
-$ dkrun_ipython kaggle
+$ dkrun_ipython base ~/git
+$ dkrun_ipython ds ~/git
+$ dkrun_ipython kaggle ~/git
 ```
+The first argument is the name of the image, and the second argument is the local path to add.
 ### R images
-Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
+Run this from the terminal or add it to `.bash_profile`:
 ```sh
-alias dkrunr="docker run --rm -v ~/git:/home/rstudio -p 8787:8787 -e ROOT=TRUE r"
+dkrun_r() {
+	docker run \
+	--rm \
+	-v $2:/home/rstudio \
+	-p 8787:8787 \
+	-e ROOT=TRUE \
+	$1
+}
 ```
+The first argument is the name of the image, and the second argument is the local path to add.
 Run this from the terminal to run rstudio within the image:
 ```sh
-$ dkrunr
+$ dkrun_r r ~/git
 ```
 Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
