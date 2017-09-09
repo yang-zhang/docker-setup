@@ -52,7 +52,7 @@ $ dkrun base
 $ dkrun ds
 $ dkrun kaggle
 ```
-Go to `http://localhost:8888` to open jupyter notebook.
+Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
 #### Ipython
 Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
