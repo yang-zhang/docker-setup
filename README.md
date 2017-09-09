@@ -4,6 +4,10 @@ Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docke
 ## The images
 ### Image: `base`
 [Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile)
+### Image: `ds`
+[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/ds/Dockerfile)
+### Image: `kaggle`
+[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/kaggle/Dockerfile)
 ### Image: `r`
 [Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
 
@@ -16,8 +20,8 @@ dkbuild() {
 
 ```sh
 $ dkbuild base
-```
-```sh
+$ dkbuild ds
+$ dkbuild kaggle
 $ dkbuild r
 ```
 
@@ -36,6 +40,11 @@ dkrun() {
 	--allow-root"
 }
 ```
+ 
+```sh
+alias dkrunr="docker run --rm -v ~/git:/home/rstudio -p 8787:8787 -e ROOT=TRUE r"
+```
+`http://localhost:8787` `rstudio`
 ```sh
 $ dkrun base
 ```
