@@ -8,12 +8,11 @@ Based on [`continuumio/anaconda3`](https://hub.docker.com/r/continuumio/anaconda
 - Add Jupyter nbextensions
 - Enable favorite jupyter notebook extensions to run at start
 ### Image: [`ds`](https://github.com/yang-zhang/docker-setup/blob/master/ds/Dockerfile)
-
+Based on [`base`](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile) and add additional libraries.
 ### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/kaggle/Dockerfile)
-Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and added [kaggle-cli](https://github.com/floydwch/kaggle-cli)
-
+Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and added [kaggle-cli](https://github.com/floydwch/kaggle-cli).
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
-
+Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and add addtional libraries.
 ## Build the images
 Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
