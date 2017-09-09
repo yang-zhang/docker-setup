@@ -3,8 +3,15 @@ Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docke
 
 ## The images
 ### Image: [`base`](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile)
+Based on [`continuumio/anaconda3`](https://hub.docker.com/r/continuumio/anaconda3/) and:
+- Automatically save notebook as python file for easier version control (see [here](https://github.com/yang-zhang/docker-setup/blob/master/save_notebook_as_py_file.md) detail)
+- Add Jupyter nbextensions
+- Enable favorite jupyter notebook extensions to run at start
 ### Image: [`ds`](https://github.com/yang-zhang/docker-setup/blob/master/ds/Dockerfile)
+
 ### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/kaggle/Dockerfile)
+Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and added [kaggle-cli](https://github.com/floydwch/kaggle-cli)
+
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
 
 ## Build the images
@@ -47,7 +54,7 @@ $ dkrun ds
 $ dkrun kaggle
 ```
 Go to `http://localhost:8888` to open jupyter notebook.
-#### IPyhton
+#### Ipython
 Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
 dkrun_ipython() {
