@@ -78,6 +78,6 @@ alias dkrunr="docker run --rm -v ~/git:/home/rstudio -p 8787:8787 -e ROOT=TRUE r
 ```
 Run this from the terminal to run rstudio within the image:
 ```sh
-$ dkrun r
+$ dkrunr
 ```
 Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
