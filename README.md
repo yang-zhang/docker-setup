@@ -11,13 +11,13 @@ $ docker build base --tag base
 ```
 #### Run
 ```sh
-run_base() {
+dkrun() {
 	docker run \
 	--rm \
 	-it \
 	-p 8888:8888 \
 	-v ~/git:/opt/notebooks \
-	base \
+	$1 \
 	/bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
 	/opt/conda/bin/jupyter notebook \
 	--notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
@@ -25,13 +25,17 @@ run_base() {
 }
 ```
 
+```sh
+dkrun base
+```
 
-
-
-
-
-	
-	
- docker run --rm -i -t -p 8888:8888 base /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
- 
- 
+### Image: `r`
+[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
+#### Build the image
+```sh
+$ docker build r --tag r
+```
+#### Run
+```sh
+dkrun base
+```
