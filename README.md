@@ -2,16 +2,12 @@
 Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docker-mac) or [PC](https://www.docker.com/docker-windows).
 
 ## The images
-### Image: `base`
-[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile)
-### Image: `ds`
-[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/ds/Dockerfile)
-### Image: `kaggle`
-[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/kaggle/Dockerfile)
-### Image: `r`
-[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
+### Image: [`base`](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile)
+### Image: [`ds`](https://github.com/yang-zhang/docker-setup/blob/master/ds/Dockerfile)
+### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/kaggle/Dockerfile)
+### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
 
-## Build images
+## Build the images
 ```sh
 dkbuild() {
 	docker build $1 --tag $1
