@@ -8,12 +8,13 @@ Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docke
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
 
 ## Build the images
+Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
 dkbuild() {
 	docker build $1 --tag $1
 }
 ```
-
+Run these from the terminal to build the images:
 ```sh
 $ dkbuild base
 $ dkbuild ds
@@ -24,6 +25,7 @@ $ dkbuild r
 ## Run a container from an image
 ### Python images
 #### Jupyter notebook
+Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
 dkrun() {
 	docker run \
@@ -38,6 +40,7 @@ dkrun() {
 	--allow-root"
 }
 ```
+Run one of these from the terminal to run jupyter notebook within the respective image:
 ```sh
 $ dkrun base
 $ dkrun ds
@@ -45,6 +48,7 @@ $ dkrun kaggle
 ```
 Go to `http://localhost:8888` to open jupyter notebook.
 #### IPyhton
+Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
 dkrun_ipython() {
 	docker run \
@@ -55,15 +59,18 @@ dkrun_ipython() {
 	/bin/bash -c "ipython"
 }
 ```
+Run one of these from the terminal to run ipython within the respective image:
 ```sh
 $ dkrun_ipython base
 $ dkrun_ipython ds
 $ dkrun_ipython kaggle
 ```
 ### R images
+Run this from the terminal under the project root (`docker-setup`) or add it to `.bash_profile`:
 ```sh
 alias dkrunr="docker run --rm -v ~/git:/home/rstudio -p 8787:8787 -e ROOT=TRUE r"
 ```
+Run this from the terminal to run rstudio within the image:
 ```sh
 $ dkrun r
 ```
