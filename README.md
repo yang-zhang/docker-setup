@@ -1,15 +1,21 @@
-## Install
+## Install Docker
 Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docker-mac) or [PC](https://www.docker.com/docker-windows).
-## Images
+
+## Build images
 ### Image: `base`
 [Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/base/Dockerfile)
-#### Build the image
 ```sh
 $ ls base
 Dockerfile			jupyter_notebook_config.py
 $ docker build base --tag base
 ```
-#### Run
+### Image: `r`
+[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
+```sh
+$ docker build r --tag r
+```
+
+## Run a container from an image
 ```sh
 dkrun() {
 	docker run \
@@ -24,18 +30,9 @@ dkrun() {
 	--allow-root"
 }
 ```
-
 ```sh
 dkrun base
 ```
-
-### Image: `r`
-[Dockerfile](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
-#### Build the image
 ```sh
-$ docker build r --tag r
-```
-#### Run
-```sh
-dkrun base
+dkrun r
 ```
