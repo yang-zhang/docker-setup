@@ -19,11 +19,8 @@ Run this script [`build.py`](https://github.com/yang-zhang/docker-setup/blob/mas
 python build.py
 ```
 
-Or you can run these from the terminal under the project root (`docker-setup`) to build the images:
+Or you can run the `docker build` command from the terminal under the project root (`docker-setup`) to build the images. For example:
 ```sh
-$ docker build dockerfiles base --tag base
-$ docker build dockerfiles ds --tag ds
-$ docker build dockerfiles kaggle --tag kaggle
 $ docker build dockerfiles r --tag r
 ```
 
