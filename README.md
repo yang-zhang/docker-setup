@@ -14,18 +14,17 @@ Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and p
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/r/Dockerfile)
 Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and plus addtional libraries.
 ## Build the images
-Run this from the terminal or add it to `.bash_profile`:
+Run this script [`build.py`](https://github.com/yang-zhang/docker-setup/blob/master/build.py) under the project root (`docker-setup`)  to build the images:
 ```sh
-dkbuild() {
-	docker build $1 --tag $1
-}
+python build.py
 ```
-Run these from the terminal under the project root (`docker-setup`) to build the images:
+
+Or you can run these from the terminal under the project root (`docker-setup`) to build the images:
 ```sh
-$ dkbuild base
-$ dkbuild ds
-$ dkbuild kaggle
-$ dkbuild r
+$ docker build dockerfiles base --tag base
+$ docker build dockerfiles ds --tag ds
+$ docker build dockerfiles kaggle --tag kaggle
+$ docker build dockerfiles r --tag r
 ```
 
 ## Run a container from an image
