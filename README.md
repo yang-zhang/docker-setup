@@ -51,7 +51,7 @@ $ dkrun base ~/git
 $ dkrun ds ~/git
 $ dkrun kaggle ~/git
 ```
-The first argument is the name of the image, and the second argument is the local path to add.
+The first argument is the *name of the image*, and the second argument is the *local path to add*.
 
 Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
 #### Ipython
@@ -72,7 +72,7 @@ $ dkrun_ipython base ~/git
 $ dkrun_ipython ds ~/git
 $ dkrun_ipython kaggle ~/git
 ```
-The first argument is the name of the image, and the second argument is the local path to add.
+The first argument is the *name of the image*, and the second argument is the *local path to add*.
 ### R images
 Run this from the terminal or add it to `.bash_profile`:
 ```sh
@@ -85,7 +85,7 @@ dkrun_r() {
 	$1
 }
 ```
-The first argument is the name of the image, and the second argument is the local path to add.
+The first argument is the *name of the image*, and the second argument is the *local path to add*.
 Run this from the terminal to run rstudio within the image:
 ```sh
 $ dkrun_r r ~/git
