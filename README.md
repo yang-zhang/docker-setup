@@ -76,15 +76,34 @@ Run this from the terminal or add it to `.bash_profile`:
 dkrun_r() {
 	docker run \
 	--rm \
-	-v $2:/home/rstudio \
+	-v $1:/home/rstudio \
 	-p 8787:8787 \
 	-e ROOT=TRUE \
-	$1
+	r
 }
 ```
 The first argument is the *name of the image*, and the second argument is the *local path to add*.
 Run this from the terminal to run rstudio within the image:
 ```sh
-$ dkrun_r r ~/git
+$ dkrun_r ~/git
 ```
 Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
+
+### Tensorflow
+Run this from the terminal or add it to `.bash_profile`:
+```sh
+dkrun_tf() {
+	docker run \
+	-it \
+	--rm \
+	-v $1:/home/rstudio \
+	-p 8888:8888 \
+	tensorflow
+}
+```
+The first argument is the *name of the image*, and the second argument is the *local path to add*.
+Run this from the terminal to run rstudio within the image:
+```sh
+$ dkrun_tf ~/git
+```
+Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook.
