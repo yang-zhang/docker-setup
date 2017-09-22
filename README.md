@@ -8,11 +8,12 @@ Based on [`continuumio/anaconda3`](https://hub.docker.com/r/continuumio/anaconda
 - Add Jupyter nbextensions
 - Enable favorite jupyter notebook extensions to run at start
 ### Image: [`ds`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/ds/Dockerfile)
-Based on [`base`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/base/Dockerfile) and plus additional libraries.
+Based on [`base`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/base/Dockerfile) and plus any additional libraries.
 ### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/kaggle/Dockerfile)
 Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and plus [kaggle-cli](https://github.com/floydwch/kaggle-cli).
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/r/Dockerfile)
-Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and plus addtional libraries.
+Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and plus any addtional libraries.
+
 ## Build the images
 Run this script [`build.py`](https://github.com/yang-zhang/docker-setup/blob/master/build.py) under the project root (`docker-setup`)  to build the images:
 ```sh
@@ -25,85 +26,17 @@ $ docker build dockerfiles r --tag r
 ```
 
 ## Run a container from an image
-### Python images
-#### Jupyter notebook
-Run this from the terminal or add it to `.bash_profile`:
+From the terminal, run [docker-setup.sh](https://github.com/yang-zhang/docker-setup/blob/master/docker-setup.sh) to define shell command that runs the images:
 ```sh
-dkrun() {
-	docker run \
-	--rm \
-	-it \
-	-p 8888:8888 \
-	-v $2:/opt/notebooks \
-	$1 \
-	/bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
-	/opt/conda/bin/jupyter notebook \
-	--notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
-	--allow-root"
-}
+$ sh docker-setup.sh
 ```
-Run one of these from the terminal to run jupyter notebook within the respective image:
+Or Add to `.bash_profile` the line below so that it's automatically run when your machine starts:
 ```sh
-$ dkrun base ~/git
-$ dkrun ds ~/git
-$ dkrun kaggle ~/git
+sh [path to docker-setup.sh]
 ```
-The first argument is the *name of the image*, and the second argument is the *local path to add*.
 
-Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
-#### Ipython
-Run this from the terminal or add it to `.bash_profile`:
-```sh
-dkrun_ipython() {
-	docker run \
-	--rm \
-	-it \
-	-v $2:/tmp \
-	$1 \
-	/bin/bash -c "ipython"
-}
-```
-Run one of these from the terminal to run ipython within the respective image:
-```sh
-$ dkrun_ipython base ~/git
-$ dkrun_ipython ds ~/git
-$ dkrun_ipython kaggle ~/git
-```
-The first argument is the *name of the image*, and the second argument is the *local path to add*.
-### R images
-Run this from the terminal or add it to `.bash_profile`:
-```sh
-dkrun_r() {
-	docker run \
-	--rm \
-	-v $1:/home/rstudio \
-	-p 8787:8787 \
-	-e ROOT=TRUE \
-	r
-}
-```
-The first argument is the *name of the image*, and the second argument is the *local path to add*.
-Run this from the terminal to run rstudio within the image:
-```sh
-$ dkrun_r ~/git
-```
-Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
-
-### Tensorflow
-Run this from the terminal or add it to `.bash_profile`:
-```sh
-dkrun_tf() {
-	docker run \
-	-it \
-	--rm \
-	-v $1:/home/rstudio \
-	-p 8888:8888 \
-	tensorflow
-}
-```
-The first argument is the *name of the image*, and the second argument is the *local path to add*.
-Run this from the terminal to run rstudio within the image:
-```sh
-$ dkrun_tf ~/git
-```
-Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook.
+Then you can run the above images:
+- `dkrun base`: Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
+- `dkrun ds`: Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
+- `dkrun kaggle`: Go to `http://localhost:8888?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
+- `dkrun r`: Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
