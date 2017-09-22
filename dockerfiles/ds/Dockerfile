@@ -1,3 +1,3 @@
-  FROM base
-  RUN \
-    pip install kaggle-cli
+FROM base
+RUN \
+  pip install kaggle-cli
