@@ -8,11 +8,11 @@ dkrun() {
     docker run \
     --rm \
     -it \
-    -p 8888:8888 \
+    -p 8887:8887 \
     -v $PWD:/opt/notebooks \
     $1 \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
-    --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
     "
   elif [ "$1" == "r" ]; then
     docker run \
@@ -25,12 +25,12 @@ dkrun() {
     docker run \
     --rm \
     -it \
-    -p 8888:8888 \
+    -p 8887:8887 \
     -v $PWD:/opt/notebooks \
     $1 \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
-    --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
     --allow-root
     "
   fi
