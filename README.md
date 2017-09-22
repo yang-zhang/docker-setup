@@ -28,11 +28,11 @@ $ docker build dockerfiles r --tag r
 ## Run a container from an image
 From the terminal, run [docker-setup.sh](https://github.com/yang-zhang/docker-setup/blob/master/docker-setup.sh) to define shell command that runs the images:
 ```sh
-$ sh docker-setup.sh
+$ source docker-setup.sh
 ```
 Or Add to `.bash_profile` the line below so that it's automatically run when your machine starts:
 ```sh
-sh [path to docker-setup.sh]
+source [path to docker-setup.sh]
 ```
 
 Then you can run the above images:
