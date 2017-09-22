@@ -4,17 +4,7 @@
 # sh "path to docker-setup.sh"
 
 dkrun() {
-  if [ "$1" == "kaggle" ]; then
-    docker run \
-    --rm \
-    -it \
-    -p 8887:8887 \
-    -v $PWD:/opt/notebooks \
-    $1 \
-    /bin/bash -c "/opt/conda/bin/jupyter notebook \
-    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
-    "
-  elif [ "$1" == "r" ]; then
+  if [ "$1" == "r" ]; then
     docker run \
     --rm \
     -v $PWD:/home/rstudio \
