@@ -22,7 +22,7 @@ $ python build.py
 
 Or you can run the `docker build` command from the terminal under the project root (`docker-setup`) to build the images. For example:
 ```sh
-$ docker build dockerfiles r --tag r
+$ docker build -f dockerfiles/ds/Dockerfile . --tag ds
 ```
 
 ## Run a container from an image
