@@ -11,6 +11,8 @@ Based on [`continuumio/anaconda3`](https://hub.docker.com/r/continuumio/anaconda
 Based on [`base`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/base/Dockerfile) and plus any additional libraries.
 ### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/kaggle/Dockerfile)
 Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and plus [kaggle-cli](https://github.com/floydwch/kaggle-cli).
+### Image: [`fastai1`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/fastai1/Dockerfile) 
+For Jeremy Howard's [Practical Deep Learning For Coders, Part 1](http://course.fast.ai/).
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/r/Dockerfile)
 Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and plus any addtional libraries.
 
