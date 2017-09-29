@@ -12,4 +12,6 @@ RUN \
   # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
   jupyter nbextension enable toc2/main && \
 
-  pip install kaggle-cli
+  pip install kaggle-cli && \
+  pip install praw
+
