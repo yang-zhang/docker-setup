@@ -15,5 +15,6 @@ RUN \
   conda install theano pygpu && \
   # Issue with new keras version 2.0.1. Instead use
   conda install -c conda-forge keras=1.2.2 && \
-  
+  conda install mingw libpython && \
+
   pip install kaggle-cli
