@@ -5,14 +5,14 @@
 
 dkrun() {
   if [ "$1" == "r" ]; then
-    docker run \
+    sudo docker run \
     --rm \
     -v $PWD:/home/rstudio \
     -p 8787:8787 \
     -e ROOT=TRUE \
     r
   else
-    docker run \
+    sudo docker run \
     --rm \
     -it \
     -p 8887:8887 \
