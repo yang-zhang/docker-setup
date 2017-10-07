@@ -3,12 +3,9 @@ FROM continuumio/anaconda:latest
 # To automatically save a jupyter notebook as a python file
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
-RUN apt-get install g++ 
 
 RUN \
-  apt-get update && \
   apt-get install zip unzip && \
-  # apt-get install g++ && \
   # jupyter nbextensions
   conda install -c conda-forge jupyter_contrib_nbextensions && \
   conda install -c conda-forge jupyter_nbextensions_configurator && \
