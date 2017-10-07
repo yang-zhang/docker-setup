@@ -4,6 +4,7 @@ FROM continuumio/anaconda:latest
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN \
+  apt-get update && \
   apt-get install zip unzip && \
   apt-get install g++ && \
   # jupyter nbextensions
