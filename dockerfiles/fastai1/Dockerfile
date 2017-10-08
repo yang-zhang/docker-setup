@@ -6,7 +6,7 @@ ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN \
   # W: GPG error: http://developer.download.nvidia.com  Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F60F4B3D7FA2AF80
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F60F4B3D7FA2AF80
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F60F4B3D7FA2AF80 && \
 
 #   wget -qO - http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/7fa2af80.pub | sudo apt-key add -
 
