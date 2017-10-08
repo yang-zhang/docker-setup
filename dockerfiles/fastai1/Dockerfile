@@ -25,20 +25,20 @@ RUN \
 
   # install and configure theano
   pip install theano && \
-  echo "[global]
-  device = gpu
-  floatX = float32
-  [cuda]
+  echo "[global] && \
+  device = gpu && \
+  floatX = float32 && \
+  [cuda] && \
   root = /usr/local/cuda" > ~/.theanorc && \
 
   # install and configure keras
   pip install keras==1.2.2 && \
   mkdir ~/.keras && \
   echo '{
-      "image_dim_ordering": "th",
-      "epsilon": 1e-07,
-      "floatx": "float32",
-      "backend": "theano"
+      "image_dim_ordering": "th", && \
+      "epsilon": 1e-07, && \
+      "floatx": "float32", && \
+      "backend": "theano" && \
   }' > ~/.keras/keras.json && \
 
   # install cudnn libraries
