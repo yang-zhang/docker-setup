@@ -34,7 +34,7 @@ RUN \
   # install and configure keras
   pip install keras==1.2.2 && \
   mkdir ~/.keras && \
-  echo '{
+  echo '{ && \
       "image_dim_ordering": "th", && \
       "epsilon": 1e-07, && \
       "floatx": "float32", && \
