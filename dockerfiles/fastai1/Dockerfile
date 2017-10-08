@@ -48,8 +48,8 @@ RUN \
   sudo cp lib64/* /usr/local/cuda/lib64/ && \
   sudo cp include/* /usr/local/cuda/include/ && \
 
-  apt-get -y install g++ && \
   apt-get install zip unzip && \
+  
   # jupyter nbextensions
   conda install -c conda-forge jupyter_contrib_nbextensions && \
   conda install -c conda-forge jupyter_nbextensions_configurator && \
