@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 RUN \
 # ensure system is updated and has basic build tools
@@ -9,13 +9,15 @@ apt-get --assume-yes install software-properties-common && \
 apt-get --assume-yes install wget && \
 # download and install GPU drivers
 wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb" -O "cuda-repo-ubuntu1604_8.0.44-1_amd64.deb" 
+
 RUN \
 dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb && \ 
 apt-get update && \
 apt-get -y install cuda && \
 modprobe nvidia && \
-nvidia-smi && \
+nvidia-smi 
 
+RUN \
 # install Anaconda for current user
 mkdir downloads && \
 cd downloads && \
