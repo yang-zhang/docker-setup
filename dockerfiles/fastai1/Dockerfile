@@ -23,8 +23,9 @@ RUN \
   apt-get update && \
   apt-get -y install cuda && \
   modprobe nvidia && \
-  nvidia-smi && \
+  nvidia-smi 
   
+RUN \   
   conda install -y bcolz && \
   conda upgrade -y --all && \
 
