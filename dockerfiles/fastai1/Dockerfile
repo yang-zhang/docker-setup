@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-
+ENV DEBIAN_FRONTEND noninteractive
 RUN \
 # ensure system is updated and has basic build tools
 apt-get update && \
