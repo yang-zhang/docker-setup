@@ -11,7 +11,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
     
-RUN export PATH=/opt/conda/bin:$PATH
+RUN export PATH="/opt/conda/bin:$PATH"
 RUN \
 conda install -y bcolz && \
 conda upgrade -y --all
