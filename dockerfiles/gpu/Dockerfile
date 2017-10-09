@@ -11,7 +11,7 @@ cd downloads && \
 wget "https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh" 
 
 RUN chmod +x downloads/Anaconda2-4.2.0-Linux-x86_64.sh
-RUN yes | downloads/Anaconda2-4.2.0-Linux-x86_64.sh
+RUN /bin/bash -c 'yes | downloads/Anaconda2-4.2.0-Linux-x86_64.sh'
 
 RUN \
 echo "export PATH=\"/root/anaconda2/bin:\$PATH\"" >> ~/.bashrc && \
