@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-runtime
+FROM nvidia/cuda:latest #:9.0-cudnn7-runtime
 
 ENV PATH="/usr/local/cuda/bin/:${PATH}"
 
