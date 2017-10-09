@@ -4,18 +4,12 @@ RUN \
 apt-get update && \
 apt-get -y install wget
 
-RUN \
-# install Anaconda for current user
-mkdir downloads && \
-cd downloads && \
-wget "https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh" 
-
-RUN chmod +x downloads/Anaconda2-4.2.0-Linux-x86_64.sh
-RUN /bin/bash -c 'yes | downloads/Anaconda2-4.2.0-Linux-x86_64.sh'
+RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
+    wget --quiet https://repo.continuum.io/archive/Anaconda2-5.0.0-Linux-x86_64.sh -O ~/anaconda.sh && \
+    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
+    rm ~/anaconda.sh
 
 RUN \
-echo "export PATH=\"/root/anaconda2/bin:\$PATH\"" >> ~/.bashrc && \
-export PATH="/root/anaconda2/bin:$PATH" && \
 conda install -y bcolz && \
 conda upgrade -y --all && \
 
