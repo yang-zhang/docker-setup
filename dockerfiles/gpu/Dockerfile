@@ -11,7 +11,8 @@ wget "https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh" -O "Ana
 
 RUN \
 echo "export PATH=\"$HOME/anaconda2/bin:\$PATH\"" >> ~/.bashrc && \
-export PATH="$HOME/anaconda2/bin:$PATH" && \
+export PATH="$HOME/anaconda2/bin:$PATH"
+RUN \
 conda install -y bcolz && \
 conda upgrade -y --all && \
 
