@@ -1,5 +1,7 @@
 FROM nvidia/cuda:9.0-cudnn7-runtime
 
+ENV PATH="/usr/local/cuda/bin/:${PATH}"
+
 RUN \
 apt-get update && \
 apt-get -y install wget
