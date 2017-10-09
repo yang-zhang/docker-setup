@@ -2,8 +2,9 @@ FROM nvidia/cuda:9.0-cudnn7-runtime
 
 RUN \
 apt-get update && \
-apt-get -y install wget && \
+apt-get -y install wget
 
+RUN \
 # install Anaconda for current user
 mkdir downloads && \
 cd downloads && \
