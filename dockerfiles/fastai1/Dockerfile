@@ -13,9 +13,10 @@ wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/
 RUN \
 dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb && \ 
 apt-get update && \
-apt-get -y install cuda && \
-modprobe nvidia && \
-nvidia-smi 
+apt-get -y install cuda 
+
+RUN modprobe nvidia 
+RUN nvidia-smi 
 
 RUN \
 # install Anaconda for current user
