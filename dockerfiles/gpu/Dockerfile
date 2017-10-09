@@ -10,11 +10,11 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/archive/Anaconda2-5.0.0-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
-
-
-# RUN \
-# conda install -y bcolz && \
-# conda upgrade -y --all && \
+    
+RUN export export PATH=/opt/conda/bin:$PATH
+RUN \
+conda install -y bcolz && \
+conda upgrade -y --all && \
 
 # # install and configure theano
 # pip install theano && \
