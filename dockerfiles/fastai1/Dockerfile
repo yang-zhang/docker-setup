@@ -7,6 +7,8 @@ apt-get --assume-yes upgrade && \
 apt-get --assume-yes install tmux build-essential gcc g++ make binutils && \
 apt-get --assume-yes install software-properties-common && \
 
+apt-get --assume-yes install wget && \
+
 # download and install GPU drivers
 wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.0.176-1_amd64.deb" -O "cuda-repo-ubuntu1604_9.0.176-1_amd64.deb" && \
 
