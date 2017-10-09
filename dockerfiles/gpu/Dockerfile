@@ -1,6 +1,7 @@
 FROM nvidia/cuda:9.0-cudnn7-runtime
 
 RUN \
+apt-get -y wget && \
 
 # install Anaconda for current user
 mkdir downloads && \
