@@ -19,7 +19,7 @@ conda upgrade -y --all
 RUN \
 # install and configure theano
 pip install theano && \
-echo $"[global] \n\
+echo "[global] \n\
 device = gpu \n\
 floatX = float32 \n\
 [cuda] \n\
@@ -29,7 +29,7 @@ RUN \
 # install and configure keras
 pip install keras==1.2.2 && \
 mkdir ~/.keras && \
-echo $'{ \n\
+echo '{ \n\
     "image_dim_ordering": "th", \n\
     "epsilon": 1e-07, \n\
     "floatx": "float32", \n\
