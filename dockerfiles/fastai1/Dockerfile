@@ -14,7 +14,8 @@ wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/
 
 dpkg -i cuda-repo-ubuntu1604_9.0.176-1_amd64.deb && \ 
 apt-get update && \
-apt-get -y install cuda && \
+apt-get -y install cuda 
+RUN \
 modprobe nvidia && \
 nvidia-smi && \
 
