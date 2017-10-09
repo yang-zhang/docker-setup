@@ -1,8 +1,6 @@
 FROM nvidia/cuda:latest 
 #:9.0-cudnn7-runtime
 
-ENV PATH="/usr/local/cuda/bin/:${PATH}"
-
 RUN \
 apt-get update && \
 apt-get -y install wget
@@ -14,7 +12,6 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
     
-ENV PATH="/opt/conda/bin:${PATH}"
 RUN \
 conda install -y bcolz && \
 conda upgrade -y --all
@@ -27,7 +24,6 @@ device = gpu \n\
 floatX = float32 \n\
 [cuda] \n\
 root = /usr/local/cuda" > ~/.theanorc 
-
 RUN \
 # install and configure keras
 pip install keras==1.2.2 && \
@@ -38,7 +34,6 @@ echo '{ \n\
     "floatx": "float32", \n\
     "backend": "theano" \n\
 }' > ~/.keras/keras.json
-
 #   # jupyter nbextensions
 #   conda install -c conda-forge jupyter_contrib_nbextensions && \
 #   conda install -c conda-forge jupyter_nbextensions_configurator && \
