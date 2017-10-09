@@ -8,8 +8,9 @@ apt-get -y install wget && \
 mkdir downloads && \
 cd downloads && \
 wget "https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh" -O "Anaconda2-4.2.0-Linux-x86_64.sh" && \
-bash "Anaconda2-4.2.0-Linux-x86_64.sh" -b && \
+bash "Anaconda2-4.2.0-Linux-x86_64.sh" -b 
 
+RUN \
 echo "export PATH=\"$HOME/anaconda2/bin:\$PATH\"" >> ~/.bashrc && \
 export PATH="$HOME/anaconda2/bin:$PATH" && \
 conda install -y bcolz && \
