@@ -13,7 +13,7 @@ dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb && \
 apt-get update && \
 apt-get -y install cuda 
 
-RUN apt-get remove nvidia-384
+RUN apt-get -y remove nvidia-384
 RUN modprobe nvidia 
 RUN nvidia-smi 
 
