@@ -14,7 +14,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
 RUN export export PATH=/opt/conda/bin:$PATH
 RUN \
 conda install -y bcolz && \
-conda upgrade -y --all && \
+conda upgrade -y --all
 
 # # install and configure theano
 # pip install theano && \
