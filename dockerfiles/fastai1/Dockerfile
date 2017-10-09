@@ -8,13 +8,12 @@ apt-get --assume-yes install tmux build-essential gcc g++ make binutils && \
 apt-get --assume-yes install software-properties-common && \
 apt-get --assume-yes install wget && \
 # download and install GPU drivers
-wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb" -O "cuda-repo-ubuntu1604_8.0.44-1_amd64.deb" 
-
-RUN \
+wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb" -O "cuda-repo-ubuntu1604_8.0.44-1_amd64.deb" && \
 dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb && \ 
 apt-get update && \
 apt-get -y install cuda 
 
+RUN apt-get remove nvidia-384
 RUN modprobe nvidia 
 RUN nvidia-smi 
 
