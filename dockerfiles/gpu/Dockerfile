@@ -9,6 +9,8 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 
+RUN apt-get -y bunzip2
+
 RUN \
 conda install -y bcolz && \
 conda upgrade -y --all && \
