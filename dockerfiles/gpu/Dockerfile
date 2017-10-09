@@ -16,7 +16,7 @@ RUN \
 conda install -y bcolz && \
 conda upgrade -y --all
 
-RUN
+RUN \
 # install and configure theano
 pip install theano && \
 echo "[global] && \
