@@ -1,5 +1,4 @@
-FROM nvidia/cuda:latest 
-#:9.0-cudnn7-runtime
+FROM nvidia/cuda:9.0-cudnn7-devel 
 
 RUN \
 apt-get update && \
