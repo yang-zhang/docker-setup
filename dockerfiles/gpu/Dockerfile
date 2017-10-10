@@ -1,4 +1,6 @@
-FROM nvidia/cuda:9.0-cudnn7-devel 
+FROM nvidia/cuda:9.0-cudnn7-devel
+
+ENV PATH="/opt/conda/bin:${PATH}"
 
 RUN \
 apt-get update && \
@@ -23,6 +25,7 @@ device = gpu \n\
 floatX = float32 \n\
 [cuda] \n\
 root = /usr/local/cuda" > ~/.theanorc 
+
 RUN \
 # install and configure keras
 pip install keras==1.2.2 && \
