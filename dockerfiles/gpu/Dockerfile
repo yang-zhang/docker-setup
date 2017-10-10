@@ -20,22 +20,13 @@ conda upgrade -y --all
 RUN \
 # install and configure theano
 pip install theano && \
-echo "[global] \n\
-device = gpu \n\
-floatX = float32 \n\
-[cuda] \n\
-root = /usr/local/cuda" > ~/.theanorc 
+echo "[global] \n\device = gpu \n\floatX = float32 \n\[cuda] \n\root = /usr/local/cuda" > ~/.theanorc 
 
 RUN \
 # install and configure keras
 pip install keras==1.2.2 && \
 mkdir ~/.keras && \
-echo '{ \n\
-    "image_dim_ordering": "th", \n\
-    "epsilon": 1e-07, \n\
-    "floatx": "float32", \n\
-    "backend": "theano" \n\
-}' > ~/.keras/keras.json
+echo '{"image_dim_ordering": "th", \n\"epsilon": 1e-07, \n\"floatx": "float32", \n\"backend": "theano"}' > ~/.keras/keras.json
 #   # jupyter nbextensions
 #   conda install -c conda-forge jupyter_contrib_nbextensions && \
 #   conda install -c conda-forge jupyter_nbextensions_configurator && \
