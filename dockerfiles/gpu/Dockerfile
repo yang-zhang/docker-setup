@@ -20,7 +20,11 @@ conda upgrade -y --all
 RUN \
 # install and configure theano
 pip install theano && \
-echo "[global] \n\device = gpu \n\floatX = float32 \n\[cuda] \n\root = /usr/local/cuda" > ~/.theanorc 
+echo "[global] \n\
+device = gpu \n\
+floatX = float32 \n\
+[cuda] \n\
+root = /usr/local/cuda" > ~/.theanorc 
 
 RUN \
 # install and configure keras
