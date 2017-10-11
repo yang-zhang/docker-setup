@@ -45,3 +45,6 @@ RUN \
   # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
   jupyter nbextension enable toc2/main && \
   pip install kaggle-cli
+
+RUN \   
+    apt-get install unzip
