@@ -1,5 +1,5 @@
 ## Install Docker
-Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docker-mac) or [PC](https://www.docker.com/docker-windows).
+Install [Docker](https://www.docker.com/) for [Mac](https://www.docker.com/docker-mac) [PC](https://www.docker.com/docker-windows), or [Linux](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)(for GPU).
 
 ## The images
 ### Image: [`base`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/base/Dockerfile)
