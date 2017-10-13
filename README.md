@@ -45,6 +45,7 @@ Then you can run the above images:
 - `dkrun kaggle`
 - `dkrun_gpu fastai1`
 - `dkrun_gpu tf`
+
 For the above images, go to `http://localhost:8887?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
 
 - `dkrun r`: Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
