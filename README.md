@@ -12,9 +12,11 @@ Based on [`base`](https://github.com/yang-zhang/docker-setup/blob/master/dockerf
 ### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/kaggle/Dockerfile)
 Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and plus [kaggle-cli](https://github.com/floydwch/kaggle-cli).
 ### Image: [`fastai1`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/fastai1/Dockerfile) 
-For Jeremy Howard's [Practical Deep Learning For Coders, Part 1](http://course.fast.ai/).
+For Jeremy Howard's [Practical Deep Learning For Coders, Part 1](http://course.fast.ai/), using gpu.
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/r/Dockerfile)
 Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and plus any addtional libraries.
+### Image: [`tf`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/tf/Dockerfile)
+Tensorflow using gpu and plus any addtional libraries.
 
 ## Build the images
 Run this script [`build.py`](https://github.com/yang-zhang/docker-setup/blob/master/build.py) under the project root (`docker-setup`)  to build the images:
@@ -41,7 +43,8 @@ Then you can run the above images:
 - `dkrun base`
 - `dkrun ds` 
 - `dkrun kaggle`
-
+- `dkrun_gpu fastai1`
+- `dkrun_gpu tf`
 For the above images, go to `http://localhost:8887?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
 
 - `dkrun r`: Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
