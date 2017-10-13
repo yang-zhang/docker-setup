@@ -1,4 +1,7 @@
 FROM nvidia/cuda:8.0-cudnn6-devel
+
+ENV PATH="/opt/conda/bin:${PATH}"
+
 RUN \
 apt-get update && \
 apt-get -y install wget && \
