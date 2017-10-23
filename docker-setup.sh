@@ -33,6 +33,7 @@ dkrun_gpu() {
     -it \
     -p 8887:8887 \
     -v $PWD:/opt/notebooks \
+    -v ~/models/keras_models:~/.keras/models \
     $1 \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
