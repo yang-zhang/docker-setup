@@ -17,7 +17,7 @@ RUN \
   conda install -c conda-forge jupyter_nbextensions_configurator && \
 
   # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-  jupyter nbextension enable toc2/main && \
+  jupyter nbextension enable toc2/main
 
 RUN conda install -c anaconda tensorflow-gpu
 RUN pip install keras
