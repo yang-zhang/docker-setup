@@ -26,6 +26,6 @@ RUN pip install keras
 RUN apt-get -y install bzip2
 RUN apt-get -y install unzip
 
-RUN pip install kaggle-cli
+RUN pip install -U kaggle-cli
 RUN pip install praw
 
