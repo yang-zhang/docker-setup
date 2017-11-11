@@ -11,6 +11,8 @@ Based on [`continuumio/anaconda3`](https://hub.docker.com/r/continuumio/anaconda
 Based on [`base`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/base/Dockerfile) and plus any additional libraries.
 ### Image: [`kaggle`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/kaggle/Dockerfile)
 Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and plus [kaggle-cli](https://github.com/floydwch/kaggle-cli).
+### Image: [`kaggle_gpu`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/kaggle_gpu/Dockerfile)
+Based on [`Kaggle/docker-python`](https://github.com/Kaggle/docker-python) and plus [kaggle-cli](https://github.com/floydwch/kaggle-cli), using gpu.
 ### Image: [`fastai1`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/fastai1/Dockerfile) 
 For Jeremy Howard's [Practical Deep Learning For Coders, Part 1](http://course.fast.ai/), using gpu.
 ### Image: [`r`](https://github.com/yang-zhang/docker-setup/blob/master/dockerfiles/r/Dockerfile)
@@ -46,6 +48,6 @@ Then you can run the above images:
 - `dkrun_gpu fastai1`
 - `dkrun_gpu tf`
 
-For the above images, go to `http://localhost:8887?token=[TOKEN]` to open jupyter notebook, where `[TOKEN]` is printed on the terminal when you run the above images.
+For the above images, go to `http://localhost:[PORT]?token=[TOKEN]` to open jupyter notebook, as printed on the terminal when you run the above images.
 
 - `dkrun r`: Go to `http://localhost:8787` to open rstudio, where username and password both are `rstudio`.
