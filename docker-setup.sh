@@ -8,14 +8,14 @@ dkrun() {
     sudo docker run \
     --rm \
     -v $PWD:/home/rstudio \
-    -p 8787:8787 \
+    -p 8888:8888 \
     -e ROOT=TRUE \
     r
   else
     sudo docker run \
     --rm \
     -it \
-    -p 8887:8887 \
+    -p 8888:8888 \
     -v $PWD:/opt/notebooks \
     $1 \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
