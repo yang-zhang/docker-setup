@@ -20,6 +20,9 @@ RUN \
   jupyter nbextension enable toc2/main
 
 RUN conda install -c anaconda tensorflow-gpu
+
+RUN conda install theano pygpu
+
 RUN pip install keras
 
 
