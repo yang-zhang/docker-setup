@@ -23,7 +23,7 @@ RUN conda install -c anaconda tensorflow-gpu
 
 RUN conda install theano pygpu
 
-RUN pip install keras
+RUN pip install -U keras
 
 
 RUN apt-get -y install bzip2
