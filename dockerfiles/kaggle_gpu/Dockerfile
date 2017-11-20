@@ -11,17 +11,16 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 
-RUN \
-  # jupyter nbextensions
-  conda install -c conda-forge jupyter_contrib_nbextensions && \
-  conda install -c conda-forge jupyter_nbextensions_configurator
+# jupyter nbextensions
+RUN conda install -c conda-forge jupyter_contrib_nbextensions
+RUN conda install -c conda-forge jupyter_nbextensions_configurator
 
 # FOR code_prettify
 RUN pip install yapf
 
 # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-RUN  jupyter nbextension enable toc2/main && \
-     jupyter nbextension enable code_prettify/code_prettify
+RUN jupyter nbextension enable toc2/main && \
+    jupyter nbextension enable code_prettify/code_prettify
 
 RUN conda install -c anaconda tensorflow-gpu
 
