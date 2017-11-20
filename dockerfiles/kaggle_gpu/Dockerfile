@@ -35,4 +35,6 @@ RUN pip install praw
 
 RUN pip install opencv-python
 RUN apt-get update 
-RUN apt-get install -y libsm6 libxext6 libgtk2.0-dev
+RUN apt-get install -y libsm6
+RUN apt-get install -y libxext6
+RUN apt-get install -y libgtk2.0-dev
