@@ -25,10 +25,10 @@ RUN conda install theano pygpu
 
 RUN pip install -U keras
 
-
 RUN apt-get -y install bzip2
 RUN apt-get -y install unzip
 
 RUN pip install -U kaggle-cli
 RUN pip install praw
 
+RUN pip install opencv-python
