@@ -17,7 +17,6 @@ RUN conda install -c conda-forge jupyter_nbextensions_configurator
 
 # FOR code_prettify
 RUN pip install yapf
-
 # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
 RUN jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
@@ -35,3 +34,5 @@ RUN pip install -U kaggle-cli
 RUN pip install praw
 
 RUN pip install opencv-python
+RUN apt-get update 
+RUN apt-get install -y libsm6 libxext6 libgtk2.0-dev
