@@ -5,6 +5,8 @@ ENV PATH="/opt/conda/bin:${PATH}"
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update 
+RUN apt-get dist-upgrade
+
 RUN apt-get -y install wget
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh -O ~/anaconda.sh && \
@@ -37,7 +39,6 @@ RUN pip install -U kaggle-cli
 RUN pip install praw
 
 RUN pip install opencv-python
-RUN apt-get update 
 RUN apt-get install -y libopencv-dev
 RUN apt-get install -y libsm6
 RUN apt-get install -y libxext6
