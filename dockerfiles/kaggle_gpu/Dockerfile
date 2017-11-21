@@ -37,6 +37,7 @@ RUN pip install -U kaggle-cli
 RUN pip install praw
 
 RUN pip install opencv-python
+RUN pip install libopencv-dev
 RUN apt-get update 
 RUN apt-get install -y libsm6
 RUN apt-get install -y libxext6
