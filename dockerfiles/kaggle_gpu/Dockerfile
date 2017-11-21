@@ -6,6 +6,7 @@ ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update
 RUN apt-get --fix-missing -y dist-upgrade
+RUN apt-get install -y apt-transport-https
 
 RUN apt-get -y install wget
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
