@@ -6,7 +6,7 @@ ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update
 
-RUN apt-get upgrade
+RUN apt-get -y upgrade
 
 RUN apt-get -y install wget
 
