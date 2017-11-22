@@ -49,5 +49,4 @@ RUN apt-get install -y libsm6
 RUN apt-get install -y libxext6
 RUN apt-get install -y libxrender1
 RUN apt-get install -y libfontconfig1
-RUN apt-get install -y libopenmpi-dev
 
