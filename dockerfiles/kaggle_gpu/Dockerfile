@@ -40,9 +40,12 @@ RUN pip install -U kaggle-cli
 RUN pip install praw
 
 RUN pip install opencv-python
-RUN apt-get install -y libopencv-dev
 RUN apt-get install -y libsm6
 RUN apt-get install -y libxext6
 RUN apt-get install -y libxrender1
 RUN apt-get install -y libfontconfig1
 RUN apt-get install -y libopenmpi-dev
+
+RUN dpkg --configure -a
+RUN apt-get -f install
+RUN apt-get install -y libopencv-dev
