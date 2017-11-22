@@ -46,6 +46,6 @@ RUN apt-get install -y libxrender1
 RUN apt-get install -y libfontconfig1
 RUN apt-get install -y libopenmpi-dev
 
-RUN dpkg --configure -a
-RUN apt-get -f install
-RUN apt-get install -y libopencv-dev
+# RUN dpkg --configure -a
+# RUN apt-get -f install
+# RUN apt-get install -y libopencv-dev
