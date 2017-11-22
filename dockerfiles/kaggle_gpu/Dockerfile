@@ -6,6 +6,8 @@ ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update
 
+RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+
 RUN apt-get -y --fix-missing dist-upgrade
 
 RUN apt-get -y --fix-missing upgrade
