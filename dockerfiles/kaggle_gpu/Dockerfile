@@ -5,7 +5,7 @@ ENV PATH="/opt/conda/bin:${PATH}"
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
-
+RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list.d/official-package-repositories.list
 RUN apt-get update
 
 # RUN apt-get -y --fix-missing dist-upgrade
