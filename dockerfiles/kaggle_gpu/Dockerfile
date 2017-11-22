@@ -26,7 +26,7 @@ RUN jupyter nbextension enable toc2/main && \
 RUN conda install -c anaconda tensorflow-gpu
 
 # cntk https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras
-RUN apt-get install openmpi-bin
+RUN apt-get install  -y openmpi-bin
 RUN pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp36-cp36m-linux_x86_64.whl
 
 
