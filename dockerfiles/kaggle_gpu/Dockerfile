@@ -28,9 +28,6 @@ RUN conda install -c anaconda tensorflow-gpu
 
 RUN conda install theano pygpu
 
-# https://docs.microsoft.com/en-us/cognitive-toolkit/setup-linux-python
-RUN pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp36-cp36m-linux_x86_64.whl
-
 RUN pip install -U keras
 
 RUN apt-get -y install bzip2
@@ -46,6 +43,3 @@ RUN apt-get install -y libxrender1
 RUN apt-get install -y libfontconfig1
 RUN apt-get install -y libopenmpi-dev
 
-# RUN dpkg --configure -a
-# RUN apt-get -f install
-# RUN apt-get install -y libopencv-dev
