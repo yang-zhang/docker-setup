@@ -3,11 +3,7 @@ FROM nvidia/cuda
 # To automatically save a jupyter notebook as a python file
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
-# RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
-# RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list.d/official-package-repositories.list
 RUN apt-get update
-# RUN apt-get -y --fix-missing dist-upgrade
-# RUN apt-get -y --fix-missing upgrade
 RUN apt-get -y install wget
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
@@ -27,10 +23,6 @@ RUN jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
 
 RUN conda install -c anaconda tensorflow-gpu
-
-# cntk https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras
-RUN apt-get install  -y openmpi-bin
-RUN pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp36-cp36m-linux_x86_64.whl
 
 RUN conda install theano pygpu
 
