@@ -74,7 +74,7 @@ dkrun_cntk() {
     -v $PWD:/opt/notebooks \
     -v ~/models/keras_models:/root/.keras/models \
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
-    -t microsoft/cntk
+    -t cntk
     
     sudo docker exec \
     -it cntk-jupyter-notebooks \
