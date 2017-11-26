@@ -67,6 +67,23 @@ dkrun_fastai1() {
     "
 }
 
+dkrun_cntk() {
+    sudo nvidia-docker run \
+    -d -p 8887:8887 \
+    --name cntk-jupyter-notebooks \
+    -v $PWD:/opt/notebooks \
+    -v ~/models/keras_models:/root/.keras/models \
+    -v ~/tmp/keras_tmp:/root/.keras/tmp \
+    -t microsoft/cntk
+    
+    sudo docker exec \
+    -it cntk-jupyter-notebooks \
+    bash -c "source /cntk/activate-cntk && \
+        jupyter-notebook --no-browser --port=8888 \
+        --ip=0.0.0.0 --notebook-dir=/cntk/Tutorials --allow-root
+     "
+}
+
 dkrun_r() {
     sudo docker run \
     --rm \
