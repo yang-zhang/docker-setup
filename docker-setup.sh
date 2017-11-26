@@ -3,6 +3,23 @@
 # Add to ~/.bash_profile:
 # sh "path to docker-setup.sh"
 
+dkrun_ktt() {
+    sudo docker run \
+    --rm \
+    --runtime=nvidia \
+    -it \
+    -p 8887:8887 \
+    -v $PWD:/opt/notebooks \
+    -v ~/models/keras_models:/root/.keras/models \
+    -v ~/tmp/keras_tmp:/root/.keras/tmp \
+    ktt \
+    /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
+    /opt/conda/bin/jupyter notebook \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
+    --allow-root
+    "
+}
+
 dkrun() {
   if [ "$1" == "r" ]; then
     sudo docker run \
