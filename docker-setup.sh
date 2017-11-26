@@ -69,6 +69,7 @@ dkrun_fastai1() {
 
 dkrun_cntk() {
     sudo nvidia-docker run \
+    --rm \
     -d -p 8887:8887 \
     --name cntk-jupyter-notebooks \
     -v $PWD:/opt/notebooks \
