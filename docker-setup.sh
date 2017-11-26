@@ -79,7 +79,7 @@ dkrun_cntk() {
     sudo docker exec \
     -it cntk-jupyter-notebooks \
     bash -c "source /cntk/activate-cntk && \
-        jupyter-notebook --no-browser --port=8888 \
+        jupyter-notebook --no-browser --port=8887 \
         --ip=0.0.0.0 --notebook-dir=/cntk/Tutorials --allow-root
      "
 }
