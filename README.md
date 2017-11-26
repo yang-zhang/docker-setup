@@ -28,7 +28,7 @@ $ python build.py
 
 Or you can run the `docker build` command from the terminal under the project root (`docker-setup`) to build the images. For example:
 ```sh
-$ sudo docker build -f dockerfiles/kaggle_gpu/Dockerfile . --tag kaggle_gpu
+$ sudo docker build -f dockerfiles/ktt/Dockerfile . -t ktt
 ```
 
 ## Run a container from an image
