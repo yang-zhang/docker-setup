@@ -42,3 +42,5 @@ RUN apt-get install -y libxext6
 RUN apt-get install -y libxrender1
 RUN apt-get install -y libfontconfig1
 
+RUN conda install -c conda-forge imageio
+
