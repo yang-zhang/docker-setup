@@ -45,4 +45,4 @@ RUN apt-get install -y libfontconfig1
 RUN conda install -c conda-forge imageio
 
 # https://askubuntu.com/questions/917030/how-to-install-pydot-and-graphviz
-RUN apt-get install -y python-pydot python-pydot-ng graphviz  
+RUN apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz
