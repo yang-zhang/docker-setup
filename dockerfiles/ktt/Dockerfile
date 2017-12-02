@@ -4,6 +4,7 @@ FROM nvidia/cuda
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update
+
 RUN apt-get -y install wget
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
@@ -45,4 +46,5 @@ RUN apt-get install -y libfontconfig1
 RUN conda install -c conda-forge imageio
 
 # https://askubuntu.com/questions/917030/how-to-install-pydot-and-graphviz
+RUN apt-get update
 RUN apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz
