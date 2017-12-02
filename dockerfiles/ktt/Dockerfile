@@ -48,3 +48,4 @@ RUN conda install -c conda-forge imageio
 # https://askubuntu.com/questions/917030/how-to-install-pydot-and-graphviz
 RUN apt-get update
 RUN apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz
+RUN conda install -c anaconda pydot 
