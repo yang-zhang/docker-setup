@@ -29,6 +29,8 @@ RUN conda install theano pygpu
 
 RUN pip install -U keras
 
+RUN conda install pytorch torchvision cuda80 -c soumith
+
 RUN pip install -U kaggle-cli
 RUN apt-get -y install bzip2
 RUN apt-get -y install unzip
