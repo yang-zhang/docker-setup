@@ -60,7 +60,7 @@ RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     mkdir build && \
     cd build && \
     cmake .. -DUSE_CUDA=ON && \
-    make -j && \
+    make -j 
 RUN cd ../python-package && python setup.py install 
 
 
