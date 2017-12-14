@@ -65,3 +65,4 @@ RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
 RUN conda install libgcc
 
 RUN pip install --upgrade gensim
+RUN pip install --upgrade keras-tqdm
