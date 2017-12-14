@@ -13,8 +13,8 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
 ENV PATH="/opt/conda/bin:${PATH}"
 
 # jupyter nbextensions
-RUN conda install -c conda-forge jupyter_contrib_nbextensions
-RUN conda install -c conda-forge jupyter_nbextensions_configurator
+RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
+    conda install -c conda-forge jupyter_nbextensions_configurator
 
 # FOR jupyter code_prettify 
 RUN pip install yapf
@@ -63,17 +63,3 @@ RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     make -j && \
     cd ../python-package && python setup.py install 
 RUN conda install libgcc
-
-#     pip install lightgbm 
-
-
-#     make && cd python-package && python setup.py install && \
-
-# Install XGBoost library
-# RUN apt-get install -y cmake
-# RUN git clone --recursive https://github.com/dmlc/xgboost && \
-#     cd xgboost && \
-#     mkdir build && \
-#     cd build && \
-#     cmake .. -DUSE_CUDA=ON && \
-#     make -j
