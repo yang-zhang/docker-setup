@@ -51,3 +51,11 @@ RUN apt-get update
 RUN apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz
 RUN conda install -c anaconda pydot
 
+
+# Install XGBoost library
+RUN git clone --recursive https://github.com/dmlc/xgboost && \
+    cd xgboost && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DUSE_CUDA=ON && \
+    make -j
