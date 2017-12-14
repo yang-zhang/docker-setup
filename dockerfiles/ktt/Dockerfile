@@ -53,13 +53,13 @@ RUN apt-get update
 RUN apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz
 RUN conda install -c anaconda pydot
 
-    #xgboost
-RUN    cd /usr/local/src && mkdir xgboost && cd xgboost && \
+#xgboost
+RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
     make && cd python-package && python setup.py install && \
-    pip install lightgbm && \
+    pip install lightgbm
 
-# # Install XGBoost library
+# Install XGBoost library
 # RUN apt-get install -y cmake
 # RUN git clone --recursive https://github.com/dmlc/xgboost && \
 #     cd xgboost && \
