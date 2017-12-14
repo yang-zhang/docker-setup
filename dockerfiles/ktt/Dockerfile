@@ -61,7 +61,7 @@ RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     cd build && \
     cmake .. -DUSE_CUDA=ON && \
     make -j && \
-    python ../python-package/setup.py install 
+RUN cd ../python-package && python setup.py install 
 
 
 #     pip install lightgbm 
