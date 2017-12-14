@@ -53,14 +53,19 @@ RUN apt-get update
 RUN apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz
 RUN conda install -c anaconda pydot
 
-#xgboost
+# xgboost
+RUN apt-get install -y cmake
 RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
     mkdir build && \
     cd build && \
     cmake .. -DUSE_CUDA=ON && \
-    make -j && \
-    pip install lightgbm 
+    make -j
+
+
+#     pip install lightgbm 
+
+
 #     make && cd python-package && python setup.py install && \
 
 # Install XGBoost library
