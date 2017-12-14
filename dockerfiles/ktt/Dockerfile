@@ -55,6 +55,7 @@ RUN conda install -c anaconda pydot
 
 
 # Install XGBoost library
+RUN apt-get install cmake
 RUN git clone --recursive https://github.com/dmlc/xgboost && \
     cd xgboost && \
     mkdir build && \
