@@ -35,6 +35,8 @@ RUN apt-get -y install bzip2
 RUN apt-get -y install unzip
 RUN pip install praw
 RUN pip install -U bcolz
+
+RUN apt-get update
 RUN apt-get -y install git
 
 # opencv
