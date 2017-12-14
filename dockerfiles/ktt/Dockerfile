@@ -56,11 +56,11 @@ RUN conda install -c anaconda pydot
 #xgboost
 RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
-    pip install lightgbm
     mkdir build && \
     cd build && \
     cmake .. -DUSE_CUDA=ON && \
-    make -j
+    make -j && \
+    pip install lightgbm 
 #     make && cd python-package && python setup.py install && \
 
 # Install XGBoost library
