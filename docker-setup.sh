@@ -49,6 +49,21 @@ dkrun_ktt() {
     "
 }
 
+dkrun_ktt_cpu() {
+    sudo docker run \
+    --rm \
+    -it \
+    -p 8887:8887 \
+    -v $PWD:/opt/notebooks \
+    -v ~/tmp/.keras:/root/.keras \
+    ktt \
+    /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
+    /opt/conda/bin/jupyter notebook \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
+    --allow-root
+    "
+}
+
 dkrun_fastai1() {
     sudo docker run \
     --rm \
