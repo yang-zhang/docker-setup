@@ -53,7 +53,7 @@ dkrun_ktt_cpu() {
     sudo docker run \
     --rm \
     -it \
-    -p 8887:8887 \
+    -p 8886:8886 \
     -v $PWD:/opt/notebooks \
     -v ~/tmp/.keras:/root/.keras \
     ktt \
