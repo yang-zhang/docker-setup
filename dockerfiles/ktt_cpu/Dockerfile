@@ -1,4 +1,4 @@
-FROM continuumio/anaconda
+FROM continuumio/anaconda3
 
 # To automatically save a jupyter notebook as a python file
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
