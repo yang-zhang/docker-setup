@@ -56,7 +56,7 @@ dkrun_ktt_cpu() {
     -p 8886:8886 \
     -v $PWD:/opt/notebooks \
     -v ~/tmp/.keras:/root/.keras \
-    ktt \
+    ktt_cpu \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
