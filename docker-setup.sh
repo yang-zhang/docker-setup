@@ -59,7 +59,7 @@ dkrun_ktt_cpu() {
     ktt_cpu \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
-    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8886 --no-browser \
     --allow-root
     "
 }
