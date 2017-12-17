@@ -20,3 +20,5 @@ RUN conda install -c conda-forge theano
 RUN conda install -c conda-forge keras 
 
 RUN conda install pytorch torchvision -c pytorch
+
+RUN pip install -U bcolz
