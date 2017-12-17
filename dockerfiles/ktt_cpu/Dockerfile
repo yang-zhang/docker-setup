@@ -21,6 +21,8 @@ RUN conda install -c conda-forge keras
 
 RUN conda install pytorch torchvision -c pytorch
 
+# bcolz
 RUN apt-get update
 RUN apt-get install -y gcc
+RUN apt-get install --reinstall build-essential
 RUN pip install -U bcolz
