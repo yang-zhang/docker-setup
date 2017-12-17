@@ -24,5 +24,5 @@ RUN conda install pytorch torchvision -c pytorch
 # bcolz
 RUN apt-get update
 RUN apt-get install -y gcc
-RUN apt-get install --reinstall build-essential
+RUN apt-get install -y --reinstall build-essential
 RUN pip install -U bcolz
