@@ -70,7 +70,7 @@ RUN pip install --upgrade keras-tqdm
 # ffmpeg
 RUN apt-get clean
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get -y upgrade
 RUN apt-get install -f
 RUN apt-get install -y --fix-missing software-properties-common python-software-properties
 RUN add-apt-repository ppa:mc3man/trusty-media  
