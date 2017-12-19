@@ -70,6 +70,7 @@ RUN pip install --upgrade keras-tqdm
 # ffmpeg
 RUN apt-get install -y software-properties-common python-software-properties
 RUN add-apt-repository ppa:mc3man/trusty-media  
-RUN apt-get update  
-RUN apt-get install -y ffmpeg  
-RUN apt-get install -y frei0r-plugins  
+RUN apt-get update
+RUN aptitude install -f
+RUN apt-get install -y ffmpeg
+RUN apt-get install -y frei0r-plugins
