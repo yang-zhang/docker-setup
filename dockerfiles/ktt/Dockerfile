@@ -33,6 +33,7 @@ RUN conda install pytorch torchvision cuda80 -c soumith
 RUN pip install -U kaggle-cli
 RUN apt-get -y install bzip2
 RUN apt-get -y install unzip
+RUN apt-get -y install p7zip-full
 RUN pip install praw
 RUN pip install -U bcolz
 
