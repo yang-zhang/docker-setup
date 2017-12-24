@@ -22,7 +22,8 @@ RUN pip install yapf
 RUN jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
 
-RUN conda install -c anaconda tensorflow-gpu
+# RUN conda install -c anaconda tensorflow-gpu
+RUN pip3 install --upgrade tensorflow-gpu
 
 RUN conda install theano pygpu
 
