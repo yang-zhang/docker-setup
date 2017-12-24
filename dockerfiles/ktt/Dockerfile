@@ -75,8 +75,11 @@ RUN add-apt-repository ppa:mc3man/trusty-media
 RUN apt-get install -y ffmpeg
 RUN apt-get install -y frei0r-plugins
 
+# tf
 RUN conda install -c anaconda tensorflow-gpu
 RUN conda update tensorflow-gpu
+# https://stackoverflow.com/questions/45952387/anaconda-install-of-tensorflow-missing-audio-ops-from-contrib-framework
+RUN pip install tf-nightly
 # RUN apt-get update
 # # RUN apt-get install -y python3-pip python3-dev
 # RUN pip install -U setuptools --ignore-installed 
