@@ -4,7 +4,7 @@ FROM nvidia/cuda
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update
-
+RUN apt-get install -y python3-pip
 RUN apt-get -y install wget
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh -O ~/anaconda.sh && \
@@ -23,7 +23,7 @@ RUN jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
 
 # RUN conda install -c anaconda tensorflow-gpu
-RUN pip install --upgrade tensorflow-gpu
+RUN pip3 install --upgrade tensorflow-gpu
 
 RUN conda install theano pygpu
 
