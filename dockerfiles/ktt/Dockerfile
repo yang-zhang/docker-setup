@@ -22,6 +22,7 @@ RUN jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
 
 # RUN conda install -c anaconda tensorflow-gpu
+RUN apt-get update
 RUN apt-get install -y python3-pip python3-dev
 RUN pip3 install --upgrade tensorflow-gpu
 
