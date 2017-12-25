@@ -15,8 +15,6 @@ RUN conda update --all
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator
-# https://github.com/lspvic/jupyter_tensorboard
-RUN pip install jupyter-tensorboard
 # FOR jupyter code_prettify 
 RUN pip install yapf
 # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
