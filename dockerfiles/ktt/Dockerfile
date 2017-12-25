@@ -81,4 +81,5 @@ RUN conda update tensorflow-gpu
 # https://stackoverflow.com/questions/45952387/anaconda-install-of-tensorflow-missing-audio-ops-from-contrib-framework
 RUN pip install tf-nightly
 # https://github.com/lspvic/jupyter_tensorboard
+RUN conda update --all
 RUN pip install jupyter-tensorboard
