@@ -40,7 +40,7 @@ dkrun_ktt() {
     --runtime=nvidia \
     -it \
     -p 8887:8887 \
-    -p localhost:6006:6006 \
+    -p 127.0.0.1:6006:6006 \
     -v $PWD:/opt/notebooks \
     -v ~/tmp/.keras:/root/.keras \
     ktt \
