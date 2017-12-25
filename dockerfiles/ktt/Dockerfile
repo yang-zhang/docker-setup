@@ -10,16 +10,20 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
+RUN conda update --all
 
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator
-
+# https://github.com/lspvic/jupyter_tensorboard
+RUN pip install jupyter-tensorboard
 # FOR jupyter code_prettify 
 RUN pip install yapf
 # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
 RUN jupyter nbextension enable toc2/main && \
-    jupyter nbextension enable code_prettify/code_prettify
+    jupyter nbextension enable code_prettify/code_prettify && \
+    jupyter nbextension enable jupyter-tensorboard
+
 
 RUN conda install theano pygpu
 
@@ -80,6 +84,3 @@ RUN conda install -c anaconda tensorflow-gpu
 RUN conda update tensorflow-gpu
 # https://stackoverflow.com/questions/45952387/anaconda-install-of-tensorflow-missing-audio-ops-from-contrib-framework
 RUN pip install tf-nightly
-# https://github.com/lspvic/jupyter_tensorboard
-RUN conda update --all
-RUN pip install jupyter-tensorboard
