@@ -57,6 +57,7 @@ dkrun_ktt_cpu() {
     -p 8886:8886 \
     -v $PWD:/opt/notebooks \
     -v ~/tmp/.keras:/root/.keras \
+    -v ~/tmp:/tmp \
     ktt_cpu \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
