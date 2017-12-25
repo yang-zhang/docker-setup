@@ -26,6 +26,7 @@ dkrun_kaggle() {
     -v $PWD:/opt/notebooks \
     -v ~/models/keras_models:/root/.keras/models \
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
+    -v ~/tmp:/tmp \
     kaggle \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
