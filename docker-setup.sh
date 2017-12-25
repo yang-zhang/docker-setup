@@ -42,7 +42,9 @@ dkrun_ktt() {
     -p 8887:8887 \
     -p 127.0.0.1:6006:6006 \
     -v $PWD:/opt/notebooks \
-    -v ~/tmp/.keras:/root/.keras \
+    -v ~/models/keras_models:/root/.keras/models \
+    -v ~/tmp/keras_tmp:/root/.keras/tmp \
+    -v ~/tmp:/tmp \
     ktt \
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
