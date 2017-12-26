@@ -3,14 +3,6 @@ FROM nvidia/cuda:latest
 # To automatically save a jupyter notebook as a python file
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
-# bazel
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
-    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
-    apt-get update && apt-get install -y bazel && \
-    apt-get upgrade -y bazel
-
 # anaconda
 RUN apt-get update && \
     apt-get -y install wget && \
@@ -19,6 +11,14 @@ RUN apt-get update && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
+
+# bazel
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
+    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
+    apt-get update && apt-get install -y bazel && \
+    apt-get upgrade -y bazel
 
 RUN pip install -U kaggle-cli && \
     pip install praw && \
