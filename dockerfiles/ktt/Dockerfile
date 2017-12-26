@@ -18,9 +18,7 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
 RUN pip install yapf
 # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
 RUN jupyter nbextension enable toc2/main && \
-    jupyter nbextension enable code_prettify/code_prettify && \
-    jupyter nbextension enable jupyter-tensorboard
-
+    jupyter nbextension enable code_prettify/code_prettify
 
 RUN conda install theano pygpu
 
@@ -84,7 +82,7 @@ RUN pip install tf-nightly
 
 # https://docs.bazel.build/versions/master/install-ubuntu.html
 #######
-RUN apt-get clean
+# RUN apt-get clean
 RUN apt-get update 
 # RUN add-apt-repository ppa:fossfreedom/packagefixes
 # RUN apt-get update
