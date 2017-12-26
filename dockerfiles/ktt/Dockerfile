@@ -12,16 +12,14 @@ RUN apt-get update && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
 
-# bazel
-RUN apt-get clean && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -f && \
-    apt-get install -y --fix-missing openjdk-8-jdk 
-RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
-    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
-    apt-get update && apt-get install -y bazel && \
-    apt-get upgrade -y bazel
+# jupyter nbextensions
+RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
+    conda install -c conda-forge jupyter_nbextensions_configurator  && \    
+    # FOR jupyter code_prettify
+    pip install yapf  && \     
+    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
+    jupyter nbextension enable toc2/main && \ 
+    jupyter nbextension enable code_prettify/code_prettify
 
 RUN pip install -U kaggle-cli && \
     pip install praw && \
@@ -62,6 +60,13 @@ RUN apt-get install -y git && \
     cd ../python-package && python setup.py install  && \
     conda install libgcc
 
+# bazel
+RUN apt-get install -y openjdk-8-jdk && \
+    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
+    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
+    apt-get update && apt-get install -y bazel && \
+    apt-get upgrade -y bazel
+
 # opencv
 RUN pip install opencv-python && \
     apt-get install -y libsm6 && \
@@ -83,15 +88,4 @@ RUN apt-get clean && \
     add-apt-repository ppa:mc3man/trusty-media  && \
     apt-get install -y ffmpeg && \
     apt-get install -y frei0r-plugins
-
-# jupyter nbextensions
-RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
-    conda install -c conda-forge jupyter_nbextensions_configurator  && \    
-    # FOR jupyter code_prettify
-    pip install yapf  && \     
-    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-    jupyter nbextension enable toc2/main && \ 
-    jupyter nbextension enable code_prettify/code_prettify
-
-
 
