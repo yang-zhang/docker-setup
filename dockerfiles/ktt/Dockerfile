@@ -12,7 +12,6 @@ RUN apt-get update && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
 
-
 # tensorflow
 RUN conda install -c anaconda tensorflow-gpu && \
     conda update tensorflow-gpu  && \
@@ -28,24 +27,12 @@ RUN pip install -U keras
 # pytorch
 RUN conda install pytorch torchvision cuda80 -c soumith
 
-
-# jupyter nbextensions
-RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
-    conda install -c conda-forge jupyter_nbextensions_configurator  && \
-    # FOR jupyter code_prettify 
-    pip install yapf
-    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-    jupyter nbextension enable toc2/main && \
-    jupyter nbextension enable code_prettify/code_prettify
-
 # opencv
 RUN pip install opencv-python && \
     apt-get install -y libsm6 && \
     apt-get install -y libxext6 && \
     apt-get install -y libxrender1 && \
     apt-get install -y libfontconfig1
-
-RUN conda install -c conda-forge imageio
 
 # https://askubuntu.com/questions/917030/how-to-install-pydot-and-graphviz
 RUN apt-get update && \
@@ -63,7 +50,6 @@ RUN apt-get install -y cmake && \
     cd ../python-package && python setup.py install  && \
     conda install libgcc
 
-
 # ffmpeg
 RUN apt-get clean && \
     apt-get update && \
@@ -74,6 +60,15 @@ RUN apt-get clean && \
     apt-get install -y ffmpeg && \
     apt-get install -y frei0r-plugins
 
+# jupyter nbextensions
+RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
+    conda install -c conda-forge jupyter_nbextensions_configurator  && \
+    # FOR jupyter code_prettify 
+    pip install yapf
+    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
+    jupyter nbextension enable toc2/main && \
+    jupyter nbextension enable code_prettify/code_prettify
+
 RUN pip install -U kaggle-cli && \
     pip install praw && \
     pip install -U bcolz  && \
@@ -83,4 +78,5 @@ RUN pip install -U kaggle-cli && \
     apt-get -y install git && \
     apt-get -y install bzip2 && \
     apt-get -y install unzip && \
-    apt-get -y install p7zip-full 
+    apt-get -y install p7zip-full && \
+    conda install -c conda-forge imageio
