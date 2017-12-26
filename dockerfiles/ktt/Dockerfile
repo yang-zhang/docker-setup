@@ -83,7 +83,7 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter nbextension enable code_prettify/code_prettify
 
 # bazel
-RUN apt-get update 
+# RUN apt-get update 
 RUN apt-get install -y openjdk-8-jdk 
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
     curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
