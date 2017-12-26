@@ -12,6 +12,18 @@ RUN apt-get update && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
 
+RUN pip install -U kaggle-cli && \
+    pip install praw && \
+    pip install -U bcolz  && \
+    pip install --upgrade gensim  && \
+    pip install --upgrade keras-tqdm  && \
+    apt-get update && \
+    apt-get -y install git && \
+    apt-get -y install bzip2 && \
+    apt-get -y install unzip && \
+    apt-get -y install p7zip-full && \
+    conda install -c conda-forge imageio
+    
 # tensorflow
 RUN conda install -c anaconda tensorflow-gpu && \
     conda update tensorflow-gpu  && \
@@ -70,14 +82,4 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
 
-RUN pip install -U kaggle-cli && \
-    pip install praw && \
-    pip install -U bcolz  && \
-    pip install --upgrade gensim  && \
-    pip install --upgrade keras-tqdm  && \
-    apt-get update && \
-    apt-get -y install git && \
-    apt-get -y install bzip2 && \
-    apt-get -y install unzip && \
-    apt-get -y install p7zip-full && \
-    conda install -c conda-forge imageio
+
