@@ -85,6 +85,8 @@ RUN pip install tf-nightly
 # https://docs.bazel.build/versions/master/install-ubuntu.html
 # RUN add-apt-repository ppa:fossfreedom/packagefixes
 # RUN apt-get update
+RUN apt-get update
+RUN apt-get install iputils-ping
 RUN apt-get install -y zenity
 RUN wget https://launchpad.net/~fossfreedom/+archive/packagefixes/+files/banish404_0.1-4_all.deb
 RUN dpkg -i banish404_0.1-4_all.deb
