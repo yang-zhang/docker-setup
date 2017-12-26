@@ -3,6 +3,7 @@ FROM nvidia/cuda
 # To automatically save a jupyter notebook as a python file
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
+# anaconda
 RUN apt-get update && \
     apt-get -y install wget && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
@@ -11,21 +12,12 @@ RUN apt-get update && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
 
-RUN pip install -U kaggle-cli && \
-    pip install praw && \
-    pip install -U bcolz    
-
-RUN apt-get update && \
-    apt-get -y install git && \
-    apt-get -y install bzip2 && \
-    apt-get -y install unzip && \
-    apt-get -y install p7zip-full 
 
 # tensorflow
-RUN conda install -c anaconda tensorflow-gpu
-RUN conda update tensorflow-gpu
-# https://stackoverflow.com/questions/45952387/anaconda-install-of-tensorflow-missing-audio-ops-from-contrib-framework
-RUN pip install tf-nightly
+RUN conda install -c anaconda tensorflow-gpu && \
+    conda update tensorflow-gpu  && \
+    # https://stackoverflow.com/questions/45952387/anaconda-install-of-tensorflow-missing-audio-ops-from-contrib-framework
+    pip install tf-nightly
 
 # theano
 RUN conda install theano pygpu
@@ -39,19 +31,19 @@ RUN conda install pytorch torchvision cuda80 -c soumith
 
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
-    conda install -c conda-forge jupyter_nbextensions_configurator
-# FOR jupyter code_prettify 
-RUN pip install yapf
-# Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-RUN jupyter nbextension enable toc2/main && \
+    conda install -c conda-forge jupyter_nbextensions_configurator  && \
+    # FOR jupyter code_prettify 
+    pip install yapf
+    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
+    jupyter nbextension enable toc2/main && \
     jupyter nbextension enable code_prettify/code_prettify
 
 # opencv
-RUN pip install opencv-python
-RUN apt-get install -y libsm6
-RUN apt-get install -y libxext6
-RUN apt-get install -y libxrender1
-RUN apt-get install -y libfontconfig1
+RUN pip install opencv-python && \
+    apt-get install -y libsm6 && \
+    apt-get install -y libxext6 && \
+    apt-get install -y libxrender1 && \
+    apt-get install -y libfontconfig1
 
 RUN conda install -c conda-forge imageio
 
@@ -68,20 +60,27 @@ RUN apt-get install -y cmake && \
     cd build && \
     cmake .. -DUSE_CUDA=ON && \
     make -j && \
-    cd ../python-package && python setup.py install 
-RUN conda install libgcc
+    cd ../python-package && python setup.py install  && \
+    conda install libgcc
 
-RUN pip install --upgrade gensim
-RUN pip install --upgrade keras-tqdm
 
 # ffmpeg
-RUN apt-get clean
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get install -f
-RUN apt-get install -y --fix-missing software-properties-common python-software-properties
-RUN add-apt-repository ppa:mc3man/trusty-media  
-RUN apt-get install -y ffmpeg
-RUN apt-get install -y frei0r-plugins
+RUN apt-get clean && \
+    apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -f && \
+    apt-get install -y --fix-missing software-properties-common python-software-properties && \
+    add-apt-repository ppa:mc3man/trusty-media  && \
+    apt-get install -y ffmpeg && \
+    apt-get install -y frei0r-plugins
 
-
+RUN pip install -U kaggle-cli && \
+    pip install praw && \
+    pip install -U bcolz  && \
+    pip install --upgrade gensim  && \
+    pip install --upgrade keras-tqdm  && \
+    apt-get update && \
+    apt-get -y install git && \
+    apt-get -y install bzip2 && \
+    apt-get -y install unzip && \
+    apt-get -y install p7zip-full 
