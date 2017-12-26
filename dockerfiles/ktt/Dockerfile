@@ -14,7 +14,8 @@ ENV PATH="/opt/conda/bin:${PATH}"
 RUN pip install -U kaggle-cli && \
     pip install praw && \
     pip install -U bcolz    
-RUN apt-get -y install git && \
+RUN apt-get -y install --no-install-recommends apt-utils && \
+    apt-get -y install git && \
     apt-get -y install bzip2 && \
     apt-get -y install unzip && \
     apt-get -y install p7zip-full 
