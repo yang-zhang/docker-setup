@@ -64,7 +64,12 @@ RUN apt-get -y install git && \
     conda install libgcc
 
 # bazel
-RUN apt-get update
+RUN apt-get update && \
+    apt-get install openjdk-8-jdk && \
+    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
+    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
+    apt-get update && apt-get install bazel && \
+    apt-get upgrade bazel
 
 # ffmpeg
 RUN apt-get clean && \
