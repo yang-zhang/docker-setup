@@ -86,12 +86,13 @@ RUN pip install tf-nightly
 RUN apt-get install -y openjdk-8-jdk
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
-RUN apt-get install ppa-purge 
-RUN ppa-purge ppa:mc3man/trusty-media
-RUN add-apt-repository -y ppa:mc3man/xerus-media
+# RUN apt-get install ppa-purge 
+# RUN ppa-purge ppa:mc3man/trusty-media
+# RUN add-apt-repository -y ppa:mc3man/xerus-media
 # RUN add-apt-repository -y -r ppa:chris-lea/node.js
 # RUN rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list
 # RUN rm -f /etc/apt/sources.list.d/ppa_chris_lea_node_js_*
+RUN rm -f /etc/apt/sources.list.d/upubuntu-com-ppa-trusty*
 RUN apt-get update 
 RUN apt-get install -y bazel
 RUN apt-get upgrade bazel
