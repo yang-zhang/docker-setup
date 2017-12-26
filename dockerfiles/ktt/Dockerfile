@@ -5,20 +5,19 @@ ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get update && \
     apt-get -y install wget && \
-    apt-get -y install git && \
-    apt-get -y install bzip2 && \
-    apt-get -y install unzip && \
-    apt-get -y install p7zip-full 
-
-RUN pip install -U kaggle-cli && \
-    pip install praw && \
-    pip install -U bcolz    
-    
-RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
+    echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
+
+RUN pip install -U kaggle-cli && \
+    pip install praw && \
+    pip install -U bcolz    
+RUN apt-get -y install git && \
+    apt-get -y install bzip2 && \
+    apt-get -y install unzip && \
+    apt-get -y install p7zip-full 
 
 # tensorflow
 RUN conda install -c anaconda tensorflow-gpu
