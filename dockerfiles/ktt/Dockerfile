@@ -18,10 +18,10 @@ RUN pip install -U kaggle-cli && \
     pip install --upgrade gensim  && \
     pip install --upgrade keras-tqdm  && \
     apt-get update && \
-    apt-get -y install git && \
-    apt-get -y install bzip2 && \
-    apt-get -y install unzip && \
-    apt-get -y install p7zip-full && \
+    apt-get install -y git && \
+    apt-get install -y bzip2 && \
+    apt-get install -y unzip && \
+    apt-get install -y p7zip-full && \
     conda install -c conda-forge imageio
     
 # tensorflow
@@ -52,7 +52,7 @@ RUN apt-get update && \
     conda install -c anaconda pydot
 
 # xgboost
-RUN apt-get -y install git && \
+RUN apt-get install -y git && \
     apt-get install -y cmake && \
     cd /usr/local/src && mkdir xgboost && cd xgboost && \
     git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
@@ -65,16 +65,16 @@ RUN apt-get -y install git && \
 
 # bazel
 RUN apt-get update && \
-    apt-get install openjdk-8-jdk && \
+    apt-get install -y openjdk-8-jdk && \
     echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
     curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
-    apt-get update && apt-get install bazel && \
-    apt-get upgrade bazel
+    apt-get update && apt-get install -y bazel && \
+    apt-get upgrade -y bazel
 
 # ffmpeg
 RUN apt-get clean && \
     apt-get update && \
-    apt-get -y upgrade && \
+    apt-get upgrade -y && \
     apt-get install -f && \
     apt-get install -y --fix-missing software-properties-common python-software-properties && \
     add-apt-repository ppa:mc3man/trusty-media  && \
