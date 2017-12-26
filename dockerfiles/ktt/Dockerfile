@@ -84,7 +84,7 @@ RUN pip install tf-nightly
 
 # https://docs.bazel.build/versions/master/install-ubuntu.html
 RUN add-apt-repository ppa:fossfreedom/packagefixes
-RUN apt-get update
+# RUN apt-get update
 RUN apt-get install banish404
 RUN banish404
 RUN apt-get install -y openjdk-8-jdk
