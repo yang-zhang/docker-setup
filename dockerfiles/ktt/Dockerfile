@@ -40,8 +40,9 @@ RUN apt-get update && \
     conda install -c anaconda pydot
 
 # xgboost
-RUN apt-get install -y cmake && \
-    cd /usr/local/src && mkdir xgboost && cd xgboost&& \
+RUN apt-get -y install git && \
+    apt-get install -y cmake && \
+    cd /usr/local/src && mkdir xgboost && cd xgboost && \
     git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
     mkdir build && \
     cd build && \
