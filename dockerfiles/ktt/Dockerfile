@@ -39,6 +39,18 @@ RUN pip install -U keras
 # pytorch
 RUN conda install pytorch torchvision cuda80 -c soumith
 
+# xgboost
+RUN apt-get install -y git && \
+    apt-get install -y cmake && \
+    cd /usr/local/src && mkdir xgboost && cd xgboost && \
+    git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DUSE_CUDA=ON && \
+    make -j && \
+    cd ../python-package && python setup.py install  && \
+    conda install libgcc
+
 # opencv
 RUN pip install opencv-python && \
     apt-get install -y libsm6 && \
@@ -50,15 +62,6 @@ RUN pip install opencv-python && \
 RUN apt-get update && \
     apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz && \
     conda install -c anaconda pydot
-
-
-# bazel
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
-    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
-    apt-get update && apt-get install -y bazel && \
-    apt-get upgrade -y bazel
 
 # ffmpeg
 RUN apt-get clean && \
@@ -79,15 +82,11 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter nbextension enable toc2/main && \ 
     jupyter nbextension enable code_prettify/code_prettify
 
-# xgboost
-RUN apt-get install -y git && \
-    apt-get install -y cmake && \
-    cd /usr/local/src && mkdir xgboost && cd xgboost && \
-    git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
-    mkdir build && \
-    cd build && \
-    cmake .. -DUSE_CUDA=ON && \
-    make -j && \
-    cd ../python-package && python setup.py install  && \
-    conda install libgcc
+# bazel
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk 
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
+    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
+    apt-get update && apt-get install -y bazel && \
+    apt-get upgrade -y bazel
 
