@@ -51,17 +51,6 @@ RUN apt-get update && \
     apt-get install -y --fix-missing python-pydot python-pydot-ng graphviz && \
     conda install -c anaconda pydot
 
-# xgboost
-RUN apt-get install -y git && \
-    apt-get install -y cmake && \
-    cd /usr/local/src && mkdir xgboost && cd xgboost && \
-    git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
-    mkdir build && \
-    cd build && \
-    cmake .. -DUSE_CUDA=ON && \
-    make -j && \
-    cd ../python-package && python setup.py install  && \
-    conda install libgcc
 
 # bazel
 RUN apt-get update && \
@@ -90,4 +79,15 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter nbextension enable toc2/main && \ 
     jupyter nbextension enable code_prettify/code_prettify
 
+# xgboost
+RUN apt-get install -y git && \
+    apt-get install -y cmake && \
+    cd /usr/local/src && mkdir xgboost && cd xgboost && \
+    git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DUSE_CUDA=ON && \
+    make -j && \
+    cd ../python-package && python setup.py install  && \
+    conda install libgcc
 
