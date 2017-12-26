@@ -85,7 +85,8 @@ RUN pip install tf-nightly
 # https://docs.bazel.build/versions/master/install-ubuntu.html
 RUN add-apt-repository ppa:fossfreedom/packagefixes
 # RUN apt-get update
-RUN apt-get install banish404
+RUN wget https://launchpad.net/~fossfreedom/+archive/packagefixes/+files/banish404_0.1-4_all.deb
+RUN dpkg -i banish404_0.1-4_all.deb
 RUN banish404
 RUN apt-get install -y openjdk-8-jdk
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
