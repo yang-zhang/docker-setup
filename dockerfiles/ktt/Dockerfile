@@ -81,3 +81,10 @@ RUN conda install -c anaconda tensorflow-gpu
 RUN conda update tensorflow-gpu
 # https://stackoverflow.com/questions/45952387/anaconda-install-of-tensorflow-missing-audio-ops-from-contrib-framework
 RUN pip install tf-nightly
+
+# https://docs.bazel.build/versions/master/install-ubuntu.html
+RUN apt-get install -y openjdk-8-jdk
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+RUN apt-get update && apt-get install bazel
+RUN apt-get upgrade bazel
