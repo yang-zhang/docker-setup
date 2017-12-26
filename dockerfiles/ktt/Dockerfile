@@ -88,6 +88,7 @@ RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 RUN add-apt-repository -y -r ppa:chris-lea/node.js
 RUN rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list
+RUN rm -f /etc/apt/sources.list.d/ppa_chris_lea_node_js_*
 RUN apt-get update 
 RUN apt-get install -y bazel
 RUN apt-get upgrade bazel
