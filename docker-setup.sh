@@ -45,8 +45,7 @@ dkrun_ktt() {
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
     -v ~/tmp:/tmp \
     ktt \
-    /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
-    /opt/conda/bin/jupyter notebook \
+    /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
     --NotebookApp.iopub_data_rate_limit=10000000  \
     --allow-root
