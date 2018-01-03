@@ -9,24 +9,23 @@ RUN apt-get update && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
-    rm ~/anaconda.sh
+    rm ~/anaconda.sh && \
+    /opt/conda/bin/conda install -y jupyter 
 ENV PATH="/opt/conda/bin:${PATH}"
 
-RUN /opt/conda/bin/conda install -y jupyter 
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator  && \    
     # FOR jupyter code_prettify
     pip install yapf  && \     
     # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-    jupyter nbextension enable toc2/main && \ 
-    jupyter nbextension enable code_prettify/code_prettify
-# install jupyterthemes
-# RUN pip install lesscpy
-RUN pip install https://pypi.python.org/packages/32/38/a55150ec018cf6fe11012bf1d988cd737af7f82227e4ac753619f0fb27a4/lesscpy-0.12.0.tar.gz
-RUN pip install -U setuptools --ignore-installed
-RUN pip install --upgrade jupyterthemes
-
+    jupyter nbextension enable toc2/main && \
+    jupyter nbextension enable code_prettify/code_prettify && \
+    # install jupyterthemes
+    ## pip install lesscpy # pypi is currently behind, use the line below for now
+    pip install https://pypi.python.org/packages/32/38/a55150ec018cf6fe11012bf1d988cd737af7f82227e4ac753619f0fb27a4/lesscpy-0.12.0.tar.gz && \
+    pip install -U setuptools --ignore-installed && \
+    pip install --upgrade jupyterthemes
 
 RUN pip install -U kaggle-cli && \
     pip install praw && \
