@@ -21,6 +21,10 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter nbextension enable toc2/main && \ 
     jupyter nbextension enable code_prettify/code_prettify
 
+# install jupyterthemes
+RUN pip install --upgrade jupyterthemes
+
+
 RUN pip install -U kaggle-cli && \
     pip install praw && \
     pip install -U bcolz  && \
