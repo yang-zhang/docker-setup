@@ -12,8 +12,7 @@ dkrun_ds() {
     -v ~/models/keras_models:/root/.keras/models \
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
     ds \
-    /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
-    /opt/conda/bin/jupyter notebook \
+    /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
     --allow-root
 }
