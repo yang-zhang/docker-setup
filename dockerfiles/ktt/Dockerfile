@@ -22,7 +22,8 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter nbextension enable toc2/main && \ 
     jupyter nbextension enable code_prettify/code_prettify
 # install jupyterthemes
-RUN pip install --upgrade lesscpy
+# RUN pip install lesscpy
+RUN pip install https://pypi.python.org/packages/32/38/a55150ec018cf6fe11012bf1d988cd737af7f82227e4ac753619f0fb27a4/lesscpy-0.12.0.tar.gz
 RUN pip install --upgrade jupyterthemes
 
 
