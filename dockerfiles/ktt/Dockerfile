@@ -12,6 +12,7 @@ RUN apt-get update && \
     rm ~/anaconda.sh
 ENV PATH="/opt/conda/bin:${PATH}"
 
+RUN /opt/conda/bin/conda install -y jupyter 
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator  && \    
@@ -20,7 +21,6 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
     jupyter nbextension enable toc2/main && \ 
     jupyter nbextension enable code_prettify/code_prettify
-
 # install jupyterthemes
 RUN pip install --upgrade jupyterthemes
 
