@@ -16,10 +16,6 @@ ENV PATH="/opt/conda/bin:${PATH}"
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator  && \    
-    # jupyter_themes
-    mkdir -p $(jupyter --data-dir)/nbextensions/jupyter_themes && \
-    wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js -d $(jupyter --data-dir)/nbextensions/jupyter_themes && \
-    jupyter_themes/theme_selector && \    
     # jupyter code_prettify
     pip install yapf  && jupyter nbextension enable code_prettify/code_prettify && \
     # table of content
