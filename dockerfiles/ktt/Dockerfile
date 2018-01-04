@@ -16,17 +16,15 @@ ENV PATH="/opt/conda/bin:${PATH}"
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator  && \    
-    # FOR jupyter code_prettify
-    pip install yapf  && \     
-    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-    jupyter nbextension enable toc2/main && \
-    jupyter nbextension enable code_prettify/code_prettify && \
-    # install jupyterthemes
-    ## pip install lesscpy # pypi is currently behind, use the line below for now
-    pip install https://pypi.python.org/packages/32/38/a55150ec018cf6fe11012bf1d988cd737af7f82227e4ac753619f0fb27a4/lesscpy-0.12.0.tar.gz && \
-    pip install -U setuptools --ignore-installed && \
-    pip install --upgrade jupyterthemes
-
+    # jupyter_themes
+    mkdir -p $(jupyter --data-dir)/nbextensions/jupyter_themes && \
+    wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js -d $(jupyter --data-dir)/nbextensions/jupyter_themes && \
+    jupyter_themes/theme_selector && \    
+    # jupyter code_prettify
+    pip install yapf  && jupyter nbextension enable code_prettify/code_prettify && \
+    # table of content
+    jupyter nbextension enable toc2/main
+    
 RUN pip install -U kaggle-cli && \
     pip install praw && \
     pip install -U bcolz  && \
