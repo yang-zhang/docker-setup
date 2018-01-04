@@ -42,9 +42,6 @@ RUN conda install -c anaconda tensorflow-gpu && \
 # theano
 RUN conda install theano pygpu
 
-# keras
-# RUN pip install -U keras
-
 # pytorch
 RUN conda install pytorch torchvision cuda80 -c soumith
 
@@ -93,3 +90,5 @@ RUN apt-get clean && \
     apt-get install -y ffmpeg && \
     apt-get install -y frei0r-plugins
 
+# keras
+RUN pip install -U keras
