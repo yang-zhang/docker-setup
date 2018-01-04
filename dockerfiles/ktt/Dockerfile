@@ -43,7 +43,7 @@ RUN conda install -c anaconda tensorflow-gpu && \
 RUN conda install theano pygpu
 
 # keras
-RUN pip install -U keras
+# RUN pip install -U keras
 
 # pytorch
 RUN conda install pytorch torchvision cuda80 -c soumith
