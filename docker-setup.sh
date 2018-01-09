@@ -64,7 +64,7 @@ dkrun_ktt_cpu() {
     -v ~/tmp:/tmp \
     ktt_cpu \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
-    --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8886 --no-browser \
     --NotebookApp.iopub_data_rate_limit=10000000  \
     --allow-root
     "
