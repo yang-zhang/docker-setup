@@ -93,4 +93,4 @@ RUN apt-get clean && \
 # keras
 RUN pip install -U keras
 
-RUN apt-get install imagemagick
+RUN apt-get install -y imagemagick
