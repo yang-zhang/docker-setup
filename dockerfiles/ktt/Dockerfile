@@ -94,5 +94,7 @@ RUN apt-get clean && \
 RUN pip install -U keras
 
 RUN apt install -y rpm
-RUN wget https://www.imagemagick.org/download/linux/CentOS/x86_64/ImageMagick-7.0.7-22.x86_64.rpm -O ~/ImageMagick.rpm && \
+RUN wget https://www.imagemagick.org/download/linux/CentOS/x86_64/ImageMagick-libs-7.0.7-22.x86_64.rpm -O ~/ImageMagick-libs.rpm && \
+    wget https://www.imagemagick.org/download/linux/CentOS/x86_64/ImageMagick-7.0.7-22.x86_64.rpm -O ~/ImageMagick.rpm && \
+    rpm -Uvh ~/ImageMagick-libs.rpm && \
     rpm -Uvh ~/ImageMagick.rpm
