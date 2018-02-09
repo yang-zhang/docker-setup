@@ -92,3 +92,5 @@ RUN apt-get clean && \
 
 # keras
 RUN pip install -U keras
+
+RUN apt install rpm
