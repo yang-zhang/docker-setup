@@ -26,4 +26,4 @@ RUN apt-get -y install wget && \
     apt-get update && \
     apt-get install -y gcc && \
     apt-get install -y --reinstall build-essential && \
-    pip install -U bcolz && \
+    pip install -U bcolz
