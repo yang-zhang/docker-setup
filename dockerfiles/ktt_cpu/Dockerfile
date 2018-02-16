@@ -3,26 +3,27 @@ FROM continuumio/anaconda3
 # To automatically save a jupyter notebook as a python file
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
-# jupyter nbextensions
-RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
-    conda install -c conda-forge jupyter_nbextensions_configurator
+RUN apt-get -y install wget && \
 
-# FOR jupyter code_prettify 
-RUN pip install yapf
-# Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
-RUN jupyter nbextension enable toc2/main && \
-    jupyter nbextension enable code_prettify/code_prettify
+    conda install -c conda-forge jupyter_contrib_nbextensions && \
+    conda install -c conda-forge jupyter_nbextensions_configurator && \
 
-RUN conda install -c conda-forge tensorflow
+    # FOR jupyter code_prettify 
+    pip install yapf && \
+    # Enable favorite jupyter notebook extensions (https://github.com/ipython-contrib/jupyter_contrib_nbextensions#3-enablingdisabling-extensions)
+    jupyter nbextension enable toc2/main && \
+    jupyter nbextension enable code_prettify/code_prettify && \
 
-RUN conda install -c conda-forge theano 
+    conda install -c conda-forge tensorflow && \
 
-RUN conda install -c conda-forge keras 
+    conda install -c conda-forge theano && \
 
-RUN conda install pytorch torchvision -c pytorch
+    conda install -c conda-forge keras && \ 
 
-# bcolz
-RUN apt-get update
-RUN apt-get install -y gcc
-RUN apt-get install -y --reinstall build-essential
-RUN pip install -U bcolz
+    conda install pytorch torchvision -c pytorch && \
+
+    # bcolz
+    apt-get update && \
+    apt-get install -y gcc && \
+    apt-get install -y --reinstall build-essential && \
+    pip install -U bcolz && \
