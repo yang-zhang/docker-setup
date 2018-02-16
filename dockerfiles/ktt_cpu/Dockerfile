@@ -4,6 +4,7 @@ FROM continuumio/anaconda3
 ADD dockerfiles/jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get -y install wget && \
+    apt-get install -y unzip && \
 
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator && \
