@@ -13,8 +13,6 @@ RUN apt-get update && \
     /opt/conda/bin/conda install -y jupyter 
 ENV PATH="/opt/conda/bin:${PATH}"
 
-RUN conda create -n py27 python=2.7 anaconda
-
 # jupyter nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator  && \    
