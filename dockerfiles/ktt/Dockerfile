@@ -31,6 +31,7 @@ RUN pip install -U kaggle-cli && \
     apt-get install -y bzip2 && \
     apt-get install -y unzip && \
     apt-get install -y p7zip-full && \
+    conda install -c anaconda joblib && \
     conda install -c conda-forge imageio
     
 # tensorflow
