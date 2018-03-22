@@ -1,7 +1,6 @@
 FROM continuumio/anaconda3
 
-RUN apt-get -y install wget && \
-    apt-get install -y unzip && \
+RUN conda update -n base conda && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda install -c conda-forge jupyter_nbextensions_configurator && \
     pip install yapf && \
