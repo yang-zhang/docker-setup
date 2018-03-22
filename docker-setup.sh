@@ -42,7 +42,7 @@ dkrun_kaggle() {
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
-    --allow-root
+    --allow-root"
 }
 
 dkrun_ktt() {
@@ -60,8 +60,7 @@ dkrun_ktt() {
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
     --NotebookApp.iopub_data_rate_limit=10000000  \
-    --allow-root
-    "
+    --allow-root"
 }
 
 dkrun_ktt_cpu() {
@@ -78,8 +77,7 @@ dkrun_ktt_cpu() {
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8886 --no-browser \
     --NotebookApp.iopub_data_rate_limit=10000000  \
-    --allow-root
-    "
+    --allow-root"
 }
 
 dkrun_fastai1() {
@@ -95,8 +93,7 @@ dkrun_fastai1() {
     /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && \
     /opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
-    --allow-root
-    "
+    --allow-root"
 }
 
 dkrun_cntk() {
@@ -113,8 +110,7 @@ dkrun_cntk() {
     -it cntk-jupyter-notebooks \
     bash -c "source /cntk/activate-cntk && \
         jupyter-notebook --no-browser --port=8887 \
-        --ip=0.0.0.0 --notebook-dir=/cntk/Tutorials --allow-root
-     "
+        --ip=0.0.0.0 --notebook-dir=/cntk/Tutorials --allow-root"
 }
 
 dkrun_r() {
