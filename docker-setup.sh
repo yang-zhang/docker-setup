@@ -12,7 +12,7 @@ dkrun_work() {
     work \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
-    --allow-root
+    --allow-root"
 }
 
 dkrun_ds() {
@@ -26,7 +26,7 @@ dkrun_ds() {
     ds \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
-    --allow-root
+    --allow-root"
 }
 
 dkrun_kaggle() {
