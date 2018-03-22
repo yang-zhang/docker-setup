@@ -4,7 +4,7 @@
 # sh "path to docker-setup.sh"
 
 dkrun_work() {
-    sudo docker run \
+    docker run \
     --rm \
     -it \
     -p 8888:8888 \
@@ -16,7 +16,7 @@ dkrun_work() {
 }
 
 dkrun_ds() {
-    sudo docker run \
+    docker run \
     --rm \
     -it \
     -p 8888:8888 \
@@ -64,7 +64,7 @@ dkrun_ktt() {
 }
 
 dkrun_ktt_cpu() {
-    sudo docker run \
+    docker run \
     --rm \
     -it \
     -p 8886:8886 \
@@ -114,7 +114,7 @@ dkrun_cntk() {
 }
 
 dkrun_r() {
-    sudo docker run \
+    docker run \
     --rm \
     -v $PWD:/home/rstudio \
     -p 8787:8787 \
