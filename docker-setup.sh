@@ -3,6 +3,18 @@
 # Add to ~/.bash_profile:
 # sh "path to docker-setup.sh"
 
+dkrun_work() {
+    sudo docker run \
+    --rm \
+    -it \
+    -p 8888:8888 \
+    -v $PWD:/opt/notebooks \
+    work \
+    /bin/bash -c "/opt/conda/bin/jupyter notebook \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
+    --allow-root
+}
+
 dkrun_ds() {
     sudo docker run \
     --rm \
