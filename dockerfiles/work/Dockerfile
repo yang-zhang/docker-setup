@@ -8,7 +8,7 @@ RUN conda update -n base conda && \
     jupyter nbextension enable code_prettify/code_prettify
     #xgboost
 RUN apt-get install -y make 
-RUN apt-get install build-essential
+RUN apt-get install -y build-essential
 RUN cd /usr/local/src && mkdir xgboost && cd xgboost && \
     git clone --depth 1 --recursive https://github.com/dmlc/xgboost.git && cd xgboost && \
     make && cd python-package && python setup.py install && \
