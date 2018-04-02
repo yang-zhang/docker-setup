@@ -10,7 +10,7 @@ dkrun_work() {
     -p 8888:8888 \
     -v $PWD:/opt/notebooks \
     work \
-    /bin/bash -c "/opt/conda/bin/jupyter notebook \
+    /bin/bash -c "/opt/conda/bin/jupyter lab \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
     --allow-root"
 }
