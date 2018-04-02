@@ -5,7 +5,7 @@ RUN conda update -n base conda && \
     conda install -c conda-forge jupyter_nbextensions_configurator && \
     pip install yapf && \
     jupyter nbextension enable toc2/main && \
-    jupyter nbextension enable code_prettify/code_prettify
+    jupyter nbextension enable code_prettify/code_prettify && \
    
     #xgboost
     apt-get install -y make 
@@ -16,4 +16,7 @@ RUN conda update -n base conda && \
     pip install lightgbm && \
     
     pip install kaggle-cli
+    
+
+
 
