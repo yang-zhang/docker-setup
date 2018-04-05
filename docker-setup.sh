@@ -11,7 +11,7 @@ dkrun_work_ec2() {
     -v $PWD:/opt/notebooks \
     work \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
-    --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
+    --notebook-dir=/opt/notebooks --ip='*' --port=8080 --no-browser \
     --allow-root"
 }
 
