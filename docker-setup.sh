@@ -7,7 +7,7 @@ dkrun_work_ec2() {
     sudo docker run \
     --rm \
     -it \
-    -p 8888:8888 \
+    -p 8080:8080 \
     -v $PWD:/opt/notebooks \
     work \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
