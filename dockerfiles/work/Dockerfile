@@ -17,6 +17,7 @@ RUN conda update -n base conda && \
     
     pip install kaggle-cli
     
-
+    #mxnet
+RUN pip install mxnet    
 
 
