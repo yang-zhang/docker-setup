@@ -19,14 +19,14 @@ For Jeremy Howard's [Practical Deep Learning For Coders, Part 1](http://course.f
 Based on [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/) and plus any addtional libraries.
 
 ## Build the images
-Run this script [`build.py`](https://github.com/yang-zhang/docker-setup/blob/master/build.py) under the project root (`docker-setup`)  to build the images:
-```sh
-$ python build.py
-```
-
-Or you can run the `docker build` command from the terminal under the project root (`docker-setup`) to build the images. For example:
+You can run the `docker build` command from the terminal under the project root (`docker-setup`) to build the images. For example:
 ```sh
 $ sudo docker build -f dockerfiles/ktt/Dockerfile . -t ktt
+$ sudo docker build -f dockerfiles/work/Dockerfile . -t work
+```
+Or run this script [`build.py`](https://github.com/yang-zhang/docker-setup/blob/master/build.py) under the project root (`docker-setup`)  to build the images:
+```sh
+$ python build.py
 ```
 
 ## Run a container from an image
