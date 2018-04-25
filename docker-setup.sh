@@ -24,6 +24,7 @@ dkrun_work() {
     -v $PWD:/opt/notebooks \
     -v ~/.mxnet:/root/.mxnet \
     -v ~/nltk_data:/root/nltk_data \
+    -v ~/scikit_learn_data:/root/scikit_learn_data/ \
     work \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser \
