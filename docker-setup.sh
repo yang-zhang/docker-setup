@@ -71,6 +71,7 @@ dkrun_ktt() {
     -v ~/models/keras_models:/root/.keras/models \
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
     -v ~/tmp:/tmp \
+    -v ~/scikit_learn_data:/root/scikit_learn_data/ \
     ktt \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
