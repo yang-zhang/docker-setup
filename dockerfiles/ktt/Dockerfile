@@ -95,3 +95,5 @@ RUN apt-get clean && \
 RUN pip install -U keras
 
 RUN apt-get install -y imagemagick
+
+RUN pip install kaggle
