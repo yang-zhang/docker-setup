@@ -73,6 +73,7 @@ dkrun_ktt() {
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
     -v ~/tmp:/tmp \
     -v ~/scikit_learn_data:/root/scikit_learn_data/ \
+    -v ~/.kaggle:/root/.kaggle \
     ktt \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8887 --no-browser \
@@ -90,6 +91,7 @@ dkrun_ktt_cpu() {
     -v ~/tmp/.keras:/root/.keras \
     -v ~/tmp/keras_tmp:/root/.keras/tmp \
     -v ~/tmp:/tmp \
+    -v ~/.kaggle:/root/.kaggle \
     ktt_cpu \
     /bin/bash -c "/opt/conda/bin/jupyter notebook \
     --notebook-dir=/opt/notebooks --ip='*' --port=8886 --no-browser \
