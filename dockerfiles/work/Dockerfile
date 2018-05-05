@@ -37,3 +37,4 @@ RUN conda update -n base conda && \
     pip install yapf && \
     jupyter nbextension enable code_prettify/code_prettify
 
+RUN pip install jieba
