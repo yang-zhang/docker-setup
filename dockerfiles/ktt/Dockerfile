@@ -86,7 +86,7 @@ RUN apt-get update && \
     pip install pandas_summary && \
     # pytorch
     # conda install pytorch torchvision cuda80 -c soumith && \
-    conda install -y pytorch torchvision -c pytorch
+    conda install -y pytorch torchvision -c pytorch && \
     # keras
     pip install -U keras && \
     apt-get install -y imagemagick
