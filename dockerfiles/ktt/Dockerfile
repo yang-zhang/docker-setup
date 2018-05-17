@@ -40,8 +40,6 @@ RUN apt-get update && \
     pip install tf-nightly && \
     # theano 
     conda install theano pygpu && \
-    # pytorch
-    conda install pytorch torchvision cuda80 -c soumith && \
     # xgboost
     apt-get install -y git && \
     apt-get install -y cmake && \
@@ -82,7 +80,15 @@ RUN apt-get update && \
     add-apt-repository ppa:mc3man/trusty-media  && \
     apt-get install -y ffmpeg && \
     apt-get install -y frei0r-plugins && \
+    pip install graphviz && \
+    pip install sklearn_pandas && \
+    pip install isoweek && \
+    pip install pandas_summary && \
+    # pytorch
+    # conda install pytorch torchvision cuda80 -c soumith && \
+    conda install -y pytorch torchvision -c pytorch
     # keras
     pip install -U keras && \
     apt-get install -y imagemagick
+    
 
